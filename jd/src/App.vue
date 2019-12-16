@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <!-- <div class="menu">
+      <p @click="jump1">首页 </p>
+      <p @click="jump2">分类 </p>
+      <p @click="jump3">购物车</p>
+      <p @click="jump4">未登录</p>
+    </div> -->
   </div>
+ 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+ 
+//  methods:{
+//    jump1(){
+//       this.$router.push({ path: "/" })
+//    },
+//     jump2(){
+//       this.$router.push({ path: "sort" })
+//    },
+//     jump3(){
+//       this.$router.push({ path: "shoppingcraft" })
+//    },
+//     jump4(){
+//       this.$router.push({ path: "unlog" })
+//    },
+//  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
 }
+html,body{
+  height: 100%
+}
+#app{
+  width: 100%;
+  height: 100%
+}
+
 </style>
