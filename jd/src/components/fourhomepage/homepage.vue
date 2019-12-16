@@ -5,7 +5,7 @@
           <span></span>
       </div>
       <div>
-            <input type="text"> 
+          <input type="text"> 
       </div>
       
       <div class="homelog">
