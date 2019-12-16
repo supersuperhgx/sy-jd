@@ -7,7 +7,7 @@
       <p @click="jump3">购物车</p>
       <p @click="jump4">未登录</p>
     </div> -->
-  </div>
+  </div> 
  
 </template>
 
