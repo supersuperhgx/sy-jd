@@ -21,21 +21,18 @@
 
     </div>
     <countdown></countdown>
-
-    <!-- <menulist></menulist> -->
-
-
+    <menulist></menulist>
   </div>
 </template>
 
 <script>
-// import menulist from "../menu/menulist.vue";
+import menulist from "../menu/menulist.vue";
 import  swiper from "../homepage/swiper.vue"
 import  swiper2 from "../homepage/swiper2.vue"
 import  countdown from "../homepage/countdown.vue"
 export default {
   components: {
-    // menulist: menulist,
+    menulist: menulist,
     swiper:swiper,
     swiper2:swiper2,
      countdown: countdown
