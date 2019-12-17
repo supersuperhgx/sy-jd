@@ -17,6 +17,7 @@
       </div>
 
       <swiper></swiper>
+      <swiper2></swiper2>
     </div>
     <menulist></menulist>
   </div>
@@ -25,10 +26,12 @@
 <script>
 import menulist from "../menu/menulist.vue";
 import  swiper from "../homepage/swiper.vue"
+import  swiper2 from "../homepage/swiper2.vue"
 export default {
   components: {
     menulist: menulist,
-    swiper:swiper
+    swiper:swiper,
+    swiper2:swiper2,
   },
   methods:{
     homemenujump(){
@@ -50,9 +53,9 @@ export default {
   justify-content: space-between;
 }
 .homepage-wrap{
-  background-image: url("../../assets/homepageimg/background.jpg");
+  background-image: url("../../assets/homepageimg/background1.jpg");
   background-repeat: no-repeat;
-  height: 43.07%;
+  height: 55.28%;
   background-size: 100% 100%;
 }
 .homepage-head {
