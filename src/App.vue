@@ -1,21 +1,18 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <!-- <div class="menu">
-      <p @click="jump1">首页 </p>
-      <p @click="jump2">分类 </p>
-      <p @click="jump3">购物车</p>
-      <p @click="jump4">未登录</p>
-    </div> -->
+   <menulist></menulist>
   </div> 
  
 </template>
 
 <script>
 
-
+import menulist from "./components/menu/menulist.vue";
 export default {
- 
+ components:{
+   menulist:menulist
+ }
 //  methods:{
 //    jump1(){
 //       this.$router.push({ path: "/" })
@@ -40,11 +37,13 @@ export default {
   box-sizing: border-box
 }
 html,body{
-  height: 100%
+  height: 100%;
+  
 }
 #app{
   width: 100%;
-  height: 100%
+  height: 100%;
+ 
 }
 
 </style>

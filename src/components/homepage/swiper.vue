@@ -104,27 +104,33 @@ export default {
   flex-direction: row;
   justify-content: center
 }
-.swiper-pagination span{
+/* .swiper-pagination span{
     color: blue;
     display: inline-block;
     width: 8px;
     height: 3px;
     margin:0px 3px
-    /* background: #ffffff */
-}
+    
+} */
  .swiper-pagination-customs {
   /* width: 1.5rem;
   height: 0.14rem; */
   display: inline-block;
-   background-color: rgba(237, 237, 237, 0.4)
+   width: 8px;
+    height: 3px;
+   background-color: rgba(237, 237, 237, 0.4);
+       margin:0px 3px
 }
 
  .swiper-pagination-customs-active {
   /* width: 1.5rem;
   height: 0.14rem; */
+   width: 8px;
+    height: 3px;
   display: inline-block;
   /* border-radius: 0.07rem; */
-  background-color: #ffffff
+     background-color: #ffffff;
+      margin:0px 3px
 } 
 
 

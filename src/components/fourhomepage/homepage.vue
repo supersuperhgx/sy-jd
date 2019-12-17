@@ -18,20 +18,27 @@
 
       <swiper></swiper>
       <swiper2></swiper2>
+
     </div>
-    <menulist></menulist>
+    <countdown></countdown>
+
+    <!-- <menulist></menulist> -->
+
+
   </div>
 </template>
 
 <script>
-import menulist from "../menu/menulist.vue";
+// import menulist from "../menu/menulist.vue";
 import  swiper from "../homepage/swiper.vue"
 import  swiper2 from "../homepage/swiper2.vue"
+import  countdown from "../homepage/countdown.vue"
 export default {
   components: {
-    menulist: menulist,
+    // menulist: menulist,
     swiper:swiper,
     swiper2:swiper2,
+     countdown: countdown
   },
   methods:{
     homemenujump(){
@@ -46,6 +53,8 @@ export default {
 
 
 <style scoped>
+
+
 .homepage {
   height: 100%;
   display: flex;
@@ -59,7 +68,7 @@ export default {
   background-size: 100% 100%;
 }
 .homepage-head {
-  height: 12.5%;
+  height: 9.8%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -134,5 +143,7 @@ input {
     position: absolute;
     left: 40px;
 }
+
+
 </style>
 

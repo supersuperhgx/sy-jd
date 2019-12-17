@@ -1,16 +1,16 @@
 <template>
   <div class="sort">
     分类1
-    <menulist></menulist>
+    <!-- <menulist></menulist> -->
   </div>
 </template>
 
 <script>
-import menulist from "../menu/menulist.vue"
+// import menulist from "../menu/menulist.vue"
  export default   {
-        components:{
-        "menulist":menulist
-      }
+      //   components:{
+      //   "menulist":menulist
+      // }
     }
 
 
