@@ -15,12 +15,15 @@
           <span>登录</span>
         </div>
       </div>
-
       <swiper></swiper>
       <swiper2></swiper2>
-
     </div>
     <countdown></countdown>
+    <newman></newman>
+    <east></east>
+
+
+
     <menulist></menulist>
   </div>
 </template>
@@ -30,12 +33,16 @@ import menulist from "../menu/menulist.vue";
 import  swiper from "../homepage/swiper.vue"
 import  swiper2 from "../homepage/swiper2.vue"
 import  countdown from "../homepage/countdown.vue"
+import  newman from "../homepage/newman.vue"
+import  east from "../homepage/east.vue"
 export default {
   components: {
     menulist: menulist,
     swiper:swiper,
     swiper2:swiper2,
-     countdown: countdown
+     countdown: countdown,
+     newman:newman,
+     east:east
   },
   methods:{
     homemenujump(){
@@ -54,9 +61,10 @@ export default {
 
 .homepage {
   height: 100%;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 .homepage-wrap{
   background-image: url("../../assets/homepageimg/background1.jpg");
