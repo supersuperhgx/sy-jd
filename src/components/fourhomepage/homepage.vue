@@ -9,7 +9,7 @@
           <span class="jdimg"></span>
           <i></i>
           <span class="jdsprites"></span>
-          <input type="text" placeholder="奥克斯空调"  />
+          <input type="text" placeholder="奥克斯空调" />
         </div>
         <div class="homelog" @click="homelog">
           <span>登录</span>
@@ -21,44 +21,53 @@
     <countdown></countdown>
     <newman></newman>
     <east></east>
-
-
-
+    <everyday></everyday>
+    <announcement></announcement>
+      <div>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+      </div>
     <menulist></menulist>
   </div>
 </template>
 
 <script>
 import menulist from "../menu/menulist.vue";
-import  swiper from "../homepage/swiper.vue"
-import  swiper2 from "../homepage/swiper2.vue"
-import  countdown from "../homepage/countdown.vue"
-import  newman from "../homepage/newman.vue"
-import  east from "../homepage/east.vue"
+import swiper from "../homepage/swiper.vue";
+import swiper2 from "../homepage/swiper2.vue";
+import countdown from "../homepage/countdown.vue";
+import newman from "../homepage/newman.vue";
+import east from "../homepage/east.vue";
+import everyday from "../homepage/everyday.vue";
+import announcement from "../homepage/announcement.vue";
 export default {
   components: {
     menulist: menulist,
-    swiper:swiper,
-    swiper2:swiper2,
-     countdown: countdown,
-     newman:newman,
-     east:east
+    swiper: swiper,
+    swiper2: swiper2,
+    countdown: countdown,
+    newman: newman,
+    east: east,
+    everyday: everyday,
+    announcement:announcement
   },
-  methods:{
-    homemenujump(){
-         this.$router.push({ path: "sort" })
+  methods: {
+    homemenujump() {
+      this.$router.push({ path: "sort" });
     },
-    homelog(){
-         this.$router.push({ path: "unlog" })
-    },
+    homelog() {
+      this.$router.push({ path: "unlog" });
+    }
   }
 };
 </script>
 
 
 <style scoped>
-
-
 .homepage {
   height: 100%;
   /* display: flex; */
@@ -66,7 +75,7 @@ export default {
   justify-content: space-between;
   position: relative;
 }
-.homepage-wrap{
+.homepage-wrap {
   background-image: url("../../assets/homepageimg/background1.jpg");
   background-repeat: no-repeat;
   height: 55.28%;
@@ -103,52 +112,48 @@ input {
   border-radius: 15px;
   border: none;
   flex-grow: 1;
-  padding-left: 70px
-  
+  padding-left: 70px;
 }
 
-.homepageinput{
+.homepageinput {
   flex-grow: 1;
   position: relative;
   margin-top: 7px;
   display: flex;
-  padding: 0px 10px
+  padding: 0px 10px;
   /* justify-content: space-between */
-  
 }
 
-.jdimg{
-    display:inline-block ;
-    width: 20px;
-    height: 15px;
-    background: url("../../assets/homepageimg/jd.png") no-repeat;
-    background-size: 20px 15px;
-    margin: 8px 8px 0 15px;
-    position: absolute;
-    left: 10px;
+.jdimg {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  background: url("../../assets/homepageimg/jd.png") no-repeat;
+  background-size: 20px 15px;
+  margin: 8px 8px 0 15px;
+  position: absolute;
+  left: 10px;
 }
 
-.homepageinput i::after{
-    content: "";
-    position: absolute;
-    border-right: 1px solid red;
-    top: 0;
-    left: 50px;
-    height: 16px;
-   margin-top: 8px
+.homepageinput i::after {
+  content: "";
+  position: absolute;
+  border-right: 1px solid red;
+  top: 0;
+  left: 50px;
+  height: 16px;
+  margin-top: 8px;
 }
-.jdsprites{
+.jdsprites {
   display: block;
-    width: 18px;
-    height: 15px;
-    background: url("../../assets/homepageimg/jd-sprites.png") no-repeat;
-    background-position: -80px 0;
-    background-size: 200px;
-    margin: 8px 0 0 15px;
-    position: absolute;
-    left: 40px;
+  width: 18px;
+  height: 15px;
+  background: url("../../assets/homepageimg/jd-sprites.png") no-repeat;
+  background-position: -80px 0;
+  background-size: 200px;
+  margin: 8px 0 0 15px;
+  position: absolute;
+  left: 40px;
 }
-
-
 </style>
 

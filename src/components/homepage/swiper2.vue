@@ -207,7 +207,7 @@ export default {
 .signlistwrap > div p {
   width: 100%;
   margin-top: 0.4rem;
-  font-size: 0.6rem;
+  font-size: 12px;
   text-align: center;
 }
 </style>

@@ -30,22 +30,35 @@
         </div>
       </div>
     </div>
-    <div >
+    <div class="east-down-wrap">
       <div>
-        <p>程序猿</p>
+        <p class="east-down-head">程序猿</p>
         <p class="world">装备必须牛</p>
         <div >
           <img src="../../assets/homepageimg/computer.jpg" alt />
         </div>
       </div>
-      <div>
-        <p>程序猿</p>
+       <div>
+        <p  class="east-down-head">程序猿</p>
         <p class="world">装备必须牛</p>
         <div >
           <img src="../../assets/homepageimg/computer.jpg" alt />
         </div>
       </div>
-     
+       <div>
+        <p  class="east-down-head">程序猿</p>
+        <p class="world">装备必须牛</p>
+        <div >
+          <img src="../../assets/homepageimg/computer.jpg" alt />
+        </div>
+      </div>
+       <div>
+        <p  class="east-down-head">程序猿</p>
+        <p class="world">装备必须牛</p>
+        <div >
+          <img src="../../assets/homepageimg/computer.jpg" alt />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -122,5 +135,30 @@ export default {};
 
   transform: scaleX(0.5);
   z-index: 10;
+}
+
+
+.east-down-wrap{
+  width: 94.6%;
+  height: 14.77%;
+  margin: 10px;
+  margin-top: 0px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  
+}
+.east-down-wrap>div{
+  flex-grow: 1;
+  padding: 6.5px 0px 5px 10px
+}
+
+.east-down-head{
+  font-weight: 700
+}
+
+.east-down-wrap>div img{
+  width: 60px;
+  height: 60px
 }
 </style>
