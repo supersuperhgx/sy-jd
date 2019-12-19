@@ -76,14 +76,15 @@ export default {};
 .everyday {
   width: 94.6%;
   height: 34%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 0 auto;
-  background: #ffffff
+
 }
 
 .everydayhead {
   width: 100%;
   height: 12.6%;
+  /* background: rgb(240,242,245) */
 }
 .everydayhead > img {
   width: 100%;
@@ -92,7 +93,8 @@ export default {};
 
 .every-content{
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    background: #ffffff
 }
 .every-content>div{
     width: 25%;

@@ -1,51 +1,51 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <!-- <div class="menu">
-      <p @click="jump1">首页 </p>
-      <p @click="jump2">分类 </p>
-      <p @click="jump3">购物车</p>
-      <p @click="jump4">未登录</p>
-    </div> -->
-  </div> 
- 
+  </div>
 </template>
 
 <script>
-
-
 export default {
- 
-//  methods:{
-//    jump1(){
-//       this.$router.push({ path: "/" })
-//    },
-//     jump2(){
-//       this.$router.push({ path: "sort" })
-//    },
-//     jump3(){
-//       this.$router.push({ path: "shoppingcraft" })
-//    },
-//     jump4(){
-//       this.$router.push({ path: "unlog" })
-//    },
-//  }
-}
+  data() {
+    return {};
+  },
+  methods:{
+
+  },
+  mounted() {
+    window.addEventListener("scroll", function() {
+      let scrollTop = document.documentElement.scrollTop;
+      // console.log(scrollTop)
+      if (scrollTop != 0) {
+        document.querySelector(".homepage-head1").style.display = "flex";
+      }else{
+         document.querySelector(".homepage-head1").style.display = "none";
+      }
+
+      // let height = document.querySelector(".east")
+      // console.log(height.scrollTop)
+  console.log(window.innerHeight)
+
+    });
+  }
+};
 </script>
 
 <style>
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
 }
-html,body{
-  height: 100%
+html,
+body {
+  height: 100%;
 }
-#app{
+#app {
   width: 100%;
-  height: 100%
+  height: 100%;
+  background: rgb(240, 242, 245);
+  /* background: red */
 }
-
 </style>

@@ -7,10 +7,12 @@
       <transition name="slide">
         <li class="text" :key="text.id">
           <span class="an-title">{{text.val.title}}</span>
-          <span>{{text.val.content}}</span>
+          <span class="an-content">{{text.val.content}}</span>
         </li>
       </transition>
     </ul>
+    <i class="line"></i>
+    <span class="more">更多</span>
   </div>
 </template>
 <script>
@@ -62,6 +64,7 @@ export default {
   padding: 0px 5px;
   display: flex;
   align-items: center;
+  justify-content: space-between
 }
 .an-title {
   padding: 0px 6px 0px 8px;
@@ -78,26 +81,32 @@ export default {
 }
 
 ul {
-  width: 100%;
+  width: 80%;
   height: 30px ;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   text-align: center;
-  border: 1px solid blue
+  /* border: 1px solid blue */
 }
 
 
 .text {
 
    position: absolute; 
-   width: 66.08%;
+   width: 95%;
   height:30px;
   overflow: hidden;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-size: 12px;
+  line-height: 30px;
+  
     
+}
+.an-content{
+    width: 150px
 }
 .slide-enter-active,
 .slide-leave-active {
@@ -108,5 +117,20 @@ ul {
 }
 .slide-leave-to {
   transform: translateY(-30px);
+}
+
+.line{
+  background: #ececec;
+    width: .05rem;
+    height: .8rem;
+    display: inline-block;
+    margin-right: .25rem;
+    vertical-align: middle;
+}
+
+.more{
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-right: 10px
 }
 </style>

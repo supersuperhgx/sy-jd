@@ -1,8 +1,5 @@
 <template>
-  <div class="homepage">
-    <scroll></scroll>
-    <div class="homepage-wrap">
-      <div class="homepage-head">
+    <div class="homepage-head1">
         <div class="homemenu" @click="homemenujump">
           <span></span>
         </div>
@@ -16,87 +13,31 @@
           <span>登录</span>
         </div>
       </div>
-      <swiper></swiper>
-      <swiper2></swiper2>
-    </div>
-    <countdown></countdown>
-    <newman></newman>
-    <east></east>
-    <everyday></everyday>
-    <announcement></announcement>
-    <recommend></recommend>
-
-    <i class="up" @click="scroll"></i>
-      <div class="one">
-     
-      </div>
-    <menulist></menulist>
-  </div>
 </template>
-
 <script>
-import menulist from "../menu/menulist.vue";
-import swiper from "../homepage/swiper.vue";
-import swiper2 from "../homepage/swiper2.vue";
-import countdown from "../homepage/countdown.vue";
-import newman from "../homepage/newman.vue";
-import east from "../homepage/east.vue";
-import everyday from "../homepage/everyday.vue";
-import announcement from "../homepage/announcement.vue";
-import recommend from "../homepage/recommend.vue";
-import scroll from "../homepage/scroll.vue";
 export default {
-  components: {
-    menulist: menulist,
-    swiper: swiper,
-    swiper2: swiper2,
-    countdown: countdown,
-    newman: newman,
-    east: east,
-    everyday: everyday,
-    announcement:announcement,
-    recommend:recommend,
-    scroll:scroll,
-
-  },
-  methods: {
+     methods: {
     homemenujump() {
       this.$router.push({ path: "sort" });
     },
     homelog() {
       this.$router.push({ path: "unlog" });
-    },
-    scroll(){
-      window.scrollTo(0,0)
     }
   }
-};
+}
 </script>
-
-
 <style scoped>
-
-.one{
-  height: 100px;
-}
-.homepage {
-  height: 100%;
+.homepage-head1 {
+    width:100%;
+  height: 5.2%;
   /* display: flex; */
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-}
-.homepage-wrap {
-  background-image: url("../../assets/homepageimg/background1.jpg");
-  background-repeat: no-repeat;
-  height: 55.28%;
-  background-size: 100% 100%;
-}
-.homepage-head {
-  height: 9.8%;
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background: red;
+  display: none;
+  position: fixed;
+  /* top: 0; */
+  z-index: 101
 }
 
 .homelog,
@@ -167,17 +108,5 @@ input {
   left: 40px;
 }
 
-.up{
-  position: fixed;
-    bottom: 80px;
-    right: 9px;
-    width: 38px;
-    height: 38px;
-    background-image: url("../../assets/homepageimg/down.png");
-    background-size: 38px 38px;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    z-index: 20;
-}
-</style>
 
+</style>

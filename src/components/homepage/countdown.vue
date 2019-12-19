@@ -8,11 +8,11 @@
         <div class="clock">
           <p>14点场</p>
           <div>
-            <div class="hour">01</div>
+            <div class="hour">{{hour}}</div>
             <span class="behind">:</span>
-            <div class="hour minute">01</div>
+            <div class="hour minute">{{minute}}</div>
             <span class="behind">:</span>
-            <div class="hour second">01</div>
+            <div class="hour second">{{second}}</div>
           </div>
         </div>
       </div>
@@ -55,6 +55,10 @@
 export default {
   data() {
     return {
+
+      hour:"",
+      minute:"",
+      second:"",
       flashsale_list: [
         {
           id: 1,
@@ -126,17 +130,57 @@ export default {
           nowPrice: 109,
           prePrice: 189
         }
-      ]
+      ],
+      countDownList: "00天00时00分00秒",
+      actEndTime: "2019-12-20 10:00:00"
     };
   },
-  methods:{
-      catmore() {
-      window.open("https://wqs.jd.com/portal/wx/seckill_m/index.shtml?st=1")
+  created() {
+    this.countDown();
+  },
+  methods: {
+    catmore() {
+      window.open("https://wqs.jd.com/portal/wx/seckill_m/index.shtml?st=1");
+    },
+    timeFormat(param) {
+      return param < 10 ? "0" + param : param;
+    },
+    countDown() {
+      var interval = setInterval(() => {
+        // 获取当前时间，同时得到活动结束时间数组
+        let newTime = new Date().getTime(); // 对结束时间进行处理渲染到页面
+        let endTime = new Date(this.actEndTime).getTime();
+        let obj = null; // 如果活动未结束，对时间进行处理
+        if (endTime - newTime > 0) {
+          let time = (endTime - newTime) / 1000; // 获取天、时、分、秒
+          let day = parseInt(time / (60 * 60 * 24));
+          let hou = parseInt((time % (60 * 60 * 24)) / 3600);
+          let min = parseInt(((time % (60 * 60 * 24)) % 3600) / 60);
+          let sec = parseInt(((time % (60 * 60 * 24)) % 3600) % 60);
+          obj = {
+            day: this.timeFormat(day),
+            hou: this.timeFormat(hou),
+            min: this.timeFormat(min),
+            sec: this.timeFormat(sec)
+          };
+        } else {
+          // 活动已结束，全部设置为'00'
+          obj = {
+            day: "00",
+            hou: "00",
+            min: "00",
+            sec: "00"
+          };
+          clearInterval(interval);
+        }
+        this.hour = obj.hou;
+        this.minute = obj.min;
+        this.second = obj.sec
+          
+      }, 1000);
     }
   }
 };
-
-
 </script>
 
 <style scoped>
@@ -150,6 +194,8 @@ export default {
   width: 94.6%;
   height: 19%;
   margin: 10px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .timehead {
@@ -160,6 +206,7 @@ export default {
   background-size: 100% 100%;
   display: flex;
   justify-content: space-between;
+  background: #fff;
 }
 .timeimg {
   width: 18.86%;
@@ -174,6 +221,7 @@ export default {
 .clock {
   display: flex;
   align-items: center;
+   border: 1px solid red
 }
 .clock > p {
   font-size: 12px;

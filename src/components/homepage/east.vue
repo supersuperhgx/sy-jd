@@ -68,7 +68,8 @@ export default {};
 <style  scoped>
 
 .east{
-    width: 100%
+    width: 100%;
+    /* background: red */
 }
 .special {
   padding-left: 9px;
@@ -88,6 +89,8 @@ export default {};
   margin-top: 0px;
   position: relative;
   display: flex;
+  /* background: red */
+  /* background: rgb(255, 255, 255) */
 }
 .eastwrap>div {
   flex-grow: 1;
@@ -128,7 +131,7 @@ export default {};
   height: 100%;
   content: "";
   width: 1px;
-  border-right: 1px solid red;
+  /* border-right: 1px solid red; */
   position: absolute;
   top: 0;
   right: 50%;
@@ -143,7 +146,7 @@ export default {};
   height: 14.77%;
   margin: 10px;
   margin-top: 0px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
   
