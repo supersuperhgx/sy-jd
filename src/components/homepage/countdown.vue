@@ -221,7 +221,7 @@ export default {
 .clock {
   display: flex;
   align-items: center;
-   border: 1px solid red
+   /* border: 1px solid red */
 }
 .clock > p {
   font-size: 12px;

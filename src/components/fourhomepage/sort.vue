@@ -1,29 +1,40 @@
 <template>
   <div class="sort">
-    分类1
+    <sorthead></sorthead>
+    <div class="sortcontent">
+      <leftmenu></leftmenu>
+      <rightgoods></rightgoods>
+    </div>
+
     <menulist></menulist>
   </div>
 </template>
 
 <script>
-import menulist from "../menu/menulist.vue"
- export default   {
-        components:{
-        "menulist":menulist
-      }
-    }
-
-
+import sorthead from "../sortpage/sorthead.vue";
+import leftmenu from "../sortpage/leftmenu.vue";
+import menulist from "../menu/menulist.vue";
+import rightgoods from "../sortpage/rightgoods.vue";
+export default {
+  components: {
+    menulist: menulist,
+    sorthead: sorthead,
+    leftmenu: leftmenu,
+    rightgoods: rightgoods
+  }
+};
 </script>
 
 
 <style scoped>
-  .sort{
-   color: red;
-   /* border: 1px solid red; */
-    height: 100%;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between
- }
+.sort {
+  width: 100%;
+  height: 100%;
+}
+
+.sortcontent{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
 </style>

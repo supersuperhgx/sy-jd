@@ -90,7 +90,7 @@ export default {};
   position: relative;
   display: flex;
   /* background: red */
-  /* background: rgb(255, 255, 255) */
+  background: rgb(255, 255, 255)
 }
 .eastwrap>div {
   flex-grow: 1;

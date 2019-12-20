@@ -32,7 +32,7 @@ export default {
     };
   },
   mounted() {
-   axios.get('http://localhost:8084/goods.json').then(response => {
+   axios.get('http://localhost:8080/goods.json').then(response => {
                     // console.log(response.data.list);
                     this.list = response.data.list
                     // console.log(this.list)
