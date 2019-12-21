@@ -6,18 +6,18 @@
       <rightgoods></rightgoods>
     </div>
 
-    <menulist></menulist>
+    <!-- <menulist></menulist> -->
   </div>
 </template>
 
 <script>
 import sorthead from "../sortpage/sorthead.vue";
 import leftmenu from "../sortpage/leftmenu.vue";
-import menulist from "../menu/menulist.vue";
+// import menulist from "../menu/menulist.vue";
 import rightgoods from "../sortpage/rightgoods.vue";
 export default {
   components: {
-    menulist: menulist,
+    // menulist: menulist,
     sorthead: sorthead,
     leftmenu: leftmenu,
     rightgoods: rightgoods

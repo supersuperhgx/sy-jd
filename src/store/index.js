@@ -1,9 +1,10 @@
 import Vuex from "vuex"
 import Vue from "vue"
+import Axios from "axios"
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
-    state:{
+    state: {
         list: [
             "热门推荐",
             "手机数码",
@@ -44,13 +45,32 @@ const store = new Vuex.Store({
             "拍卖",
             "房产",
             "工业品"
-          ],
-          item:"",
+        ],
+        newList: [],
+        arr: []
+    },
+    mutations: {
+        getData(state, obj) {
+            state.newList = obj
+            localStorage.setItem("data", JSON.stringify(state.newList))
+        },
+        check(state,item) {
+            if(item == state.newList.title){
+                state.arr = state.newList.arr
+                console.log(state.arr)
+            }       
+        },
+
 
     },
-    mutations:{
-        check(state,index){
-            state.item =index
+    actions: {
+        getNewDate(context, val) {
+            // console.log(val)
+            Axios.get("http://localhost:8080/menulist.json", val).then((res) => {
+                let data = res.data
+                context.commit("getData", data)
+
+            })
         }
     }
 })

@@ -30,12 +30,12 @@
       <div class="one">
      
       </div>
-    <menulist></menulist>
+    <!-- <menulist></menulist> -->
   </div>
 </template>
 
 <script>
-import menulist from "../menu/menulist.vue";
+// import menulist from "../menu/menulist.vue";
 import swiper from "../homepage/swiper.vue";
 import swiper2 from "../homepage/swiper2.vue";
 import countdown from "../homepage/countdown.vue";
@@ -47,7 +47,7 @@ import recommend from "../homepage/recommend.vue";
 import scroll from "../homepage/scroll.vue";
 export default {
   components: {
-    menulist: menulist,
+    // menulist: menulist,
     swiper: swiper,
     swiper2: swiper2,
     countdown: countdown,

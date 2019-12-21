@@ -1,31 +1,33 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view ></router-view>
+    <menulist v-if="$route.meta.isshow"></menulist>
   </div>
 </template>
 
 <script>
+import menulist from "./components/menu/menulist";
 export default {
   data() {
     return {};
   },
-  methods:{
-
+  components: {
+    menulist
   },
+  methods: {},
   mounted() {
     window.addEventListener("scroll", function() {
       let scrollTop = document.documentElement.scrollTop;
       // console.log(scrollTop)
       if (scrollTop != 0) {
         document.querySelector(".homepage-head1").style.display = "flex";
-      }else{
-         document.querySelector(".homepage-head1").style.display = "none";
+      } else {
+        document.querySelector(".homepage-head1").style.display = "none";
       }
 
       // let height = document.querySelector(".east")
       // console.log(height.scrollTop)
-  console.log(window.innerHeight)
-
+      console.log(window.innerHeight);
     });
   }
 };
@@ -41,6 +43,7 @@ export default {
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 #app {
   width: 100%;

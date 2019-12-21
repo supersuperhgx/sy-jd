@@ -7,19 +7,31 @@ import unlog from "../components/fourhomepage/unlog.vue"
 const routes = [
     {
         path: "/",
-        component: homepage
+        component: homepage,
+        meta:{
+            isshow:true
+        }
     },
     {
         path: "/sort",
         component: sort,
+        meta:{
+            isshow:true
+        }
     },
     {
         path: "/shoppingcraft",
-        component: shoppingcraft
+        component: shoppingcraft,
+        meta:{
+            isshow:false
+        }
     },
     {
         path: "/unlog",
-        component: unlog
+        component: unlog,
+        meta:{
+            isshow:false
+        }
     },
 ]
 

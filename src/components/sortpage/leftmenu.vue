@@ -1,28 +1,29 @@
 <template>
   <div class="leftmenu">
     <ul>
-      <li v-for="(item,index) in list" :key="index" @click="check(item)" >{{item}}</li>
+      <li v-for="(item,index) in list" :key="index" @click="check(item)">{{item}}</li>
     </ul>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {
-      
-    };
+    return {};
   },
-    computed:{
-        list(){
-            return this.$store.state.list
-        }
-    },
-    methods:{
-        check(item){
-            this.$store.commit("check",item)
-        }
+  computed: {
+    list() {
+      return this.$store.state.list;
     }
- 
+  },
+  methods: {
+    check(item) {
+      this.$store.commit("check", item);
+    },
+    
+  },
+  created() {
+    this.$store.dispatch('getNewDate')
+  }
 };
 </script>
 
@@ -30,13 +31,11 @@ export default {
 .leftmenu {
   width: 22.66%;
   height: 100%;
- 
-  /* border: 1px solid red */
 }
 .leftmenu ul {
   width: 100%;
   height: 100%;
-   overflow-y: auto;
+  overflow-y: auto;
 }
 .leftmenu ul li {
   width: 100%;
