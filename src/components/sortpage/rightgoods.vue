@@ -1,11 +1,13 @@
 <template>
   <div class="rightgoods">
     <ul>
-      <li v-for="(item,index) in list" :key="index">
+      <li v-for="(item,index) in list" :key="index" >
         <h3>{{item.title}}</h3>
-        <div v-for="(icon,index) in item.list" :key="index">
-          <h6>{{icon.type}}</h6>
-          <img :src="icon.url" alt />
+        <div class="goodscontent">
+          <div v-for="(icon,index) in item.list" :key="index">
+            <img :src="icon.url" alt />
+             <h6>{{icon.type}}</h6>
+          </div>
         </div>
       </li>
     </ul>
@@ -17,18 +19,41 @@ export default {
     return {};
   },
   computed: {
-    list(){
-      console.log( this.$store.state.arr)
-      return this.$store.state.arr
+    list() {
+      console.log(this.$store.state.arr);
+      return this.$store.state.arr;
     }
+  },
+  created(){
+    
   }
 };
 </script>
 <style scoped>
 .rightgoods {
   width: 200px;
-  height: 500px;
-  background: red;
+  height: 100%;
+
   flex-grow: 1;
+  overflow-y: auto
+}
+
+.rightgoods img {
+  width: 70px;
+  height: 70px;
+}
+
+.goodscontent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between
+}
+.goodscontent>div{
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px
 }
 </style>

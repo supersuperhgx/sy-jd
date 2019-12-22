@@ -55,10 +55,12 @@ const store = new Vuex.Store({
             localStorage.setItem("data", JSON.stringify(state.newList))
         },
         check(state,item) {
-            if(item == state.newList.title){
-                state.arr = state.newList.arr
-                console.log(state.arr)
-            }       
+         
+            state.newList.forEach(function(ele){
+                if(item == ele.title){
+                    state.arr = ele.arr
+                }
+            }) 
         },
 
 

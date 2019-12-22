@@ -1,13 +1,9 @@
 <template>
-  
-    <div class="sorthead">
+    <div class="crafthead">
       <div class="arrow" @click="back">
         <span></span>
       </div>
-      <div class="input">
-          <i></i>
-        <input type="text" placeholder="键盘鼠标套装" />
-      </div>
+      <div class="craft">购物车</div>
       <div class="point">
         <span></span>
       </div>
@@ -25,14 +21,17 @@ export default {
 </script>
 <style  scoped>
 
-.sorthead{
+.crafthead{
     width: 100%;
     height: 5.41%;
     display: flex;
     background: #ffffff;
-    border-bottom: 1px solid #cccccc
+    border-bottom: 1px solid #cccccc;
+    justify-content: space-between;
 }
-
+.craft{
+    line-height: 42.93px
+}
 .arrow,.point{
     width: 10.6%;
     height: 100%;
@@ -54,23 +53,7 @@ export default {
     background: url("../../assets/sortimg/point.jpg") no-repeat 50%;
     background-size: 20px;
 }
-.input{
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-.input input{
-    width: 100%;
-    height: 68.18%;
-    /* border: 1px solid #cccccc; */
-    border: none;
-    outline: none;
-    border-radius: 15px;
-    padding:0px 5px 0px 45px;
-    background: rgb(240, 242, 245)
-    
-}
+
 i{
     display: block;
     width: 18px;

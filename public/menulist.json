@@ -1,52 +1,11 @@
-{
+[{
      "id":"01",
      "title":"电脑办公",
      "arr":[
           {
                "id": " 001",
-               "title": "电脑分类",
+               "title": "热卖分类",
                "list": [
-                    {   
-                         "id":"0001",
-                         "type": "轻薄本",
-                         "url": "//img13.360buyimg.com/focus/s140x140_jfs/t11071/195/2462134264/9117/cd0688bf/5a17ba79N18b9f3d4.png"
-                    },
-                    {
-                         "type": "游戏本",
-                         "url": "//img30.360buyimg.com/focus/s140x140_jfs/t12418/24/1008907015/2867/86eb55a/5a17b971N14214c4f.jpg"
-                    },
-                    {
-                         "type": "键盘",
-                         "url": "//img20.360buyimg.com/focus/s140x140_jfs/t13636/255/952363201/5216/92808140/5a16a5f6Nad15240a.jpg"
-                    },
-                    {
-                         "type": "组装电脑",
-                         "url": "//img10.360buyimg.com/focus/s140x140_jfs/t14101/325/978287093/8836/e142aa53/5a17ba73N07b12f0c.jpg"
-                    },
-                    {
-                         "type": "移动硬盘",
-                         "url": "//img12.360buyimg.com/focus/s140x140_jfs/t13228/333/989759736/4764/2a312c2e/5a17ba7fN0740c051.jpg"
-                    },
-                    {
-                         "type": "显卡",
-                         "url": "//img20.360buyimg.com/focus/s140x140_jfs/t12679/262/982342141/7023/d05a11e5/5a17ba57Nf179b4e4.jpg"
-                    },
-                    {
-                         "type": "游戏台式机",
-                         "url": "//img10.360buyimg.com/focus/s140x140_jfs/t12865/295/960489437/5723/4f38f11/5a17ba8bN911b7264.jpg"
-                    },
-                    {
-                         "type": "家用打印机",
-                         "url": "//img13.360buyimg.com/focus/s140x140_jfs/t12526/166/988611883/3419/3c7507ac/5a17ba5dN8f6ffa5e.jpg"
-                    },
-                    {
-                         "type": "吃鸡装备",
-                         "url": "//img20.360buyimg.com/focus/s140x140_jfs/t16210/272/2297735843/7874/66447aee/5a9fa34bNff4ef403.jpg"
-                    },
-                    {
-                         "type": "曲屏显示器",
-                         "url": "//img30.360buyimg.com/focus/s140x140_jfs/t13798/322/988648789/3644/1adc5615/5a17ba6dNafc95373.jpg"
-                    },
                     {
                          "type": "投影机",
                          "url": "//img20.360buyimg.com/focus/s140x140_jfs/t13492/261/938265048/5840/b5e4bdb6/5a17ba61N61a74bc3.jpg"
@@ -106,7 +65,59 @@
                     {
                          "type": "线缆",
                          "url": "//img20.360buyimg.com/focus/s140x140_jfs/t13219/359/921087235/4445/bb62050e/5a16a592N7e614f3d.jpg"
+                    }
+                 
+               ]
+          },
+          {
+               "title": "电脑整机", 
+               "list":[
+                    {    
+                         "id":"0001",
+                         "type": "轻薄本",
+                         "url": "//img13.360buyimg.com/focus/s140x140_jfs/t11071/195/2462134264/9117/cd0688bf/5a17ba79N18b9f3d4.png"
                     },
+                    {
+                         "type": "游戏本",
+                         "url": "//img30.360buyimg.com/focus/s140x140_jfs/t12418/24/1008907015/2867/86eb55a/5a17b971N14214c4f.jpg"
+                    },
+                    {
+                         "type": "键盘",
+                         "url": "//img20.360buyimg.com/focus/s140x140_jfs/t13636/255/952363201/5216/92808140/5a16a5f6Nad15240a.jpg"
+                    },
+                    {
+                         "type": "组装电脑",
+                         "url": "//img10.360buyimg.com/focus/s140x140_jfs/t14101/325/978287093/8836/e142aa53/5a17ba73N07b12f0c.jpg"
+                    },
+                    {
+                         "type": "移动硬盘",
+                         "url": "//img12.360buyimg.com/focus/s140x140_jfs/t13228/333/989759736/4764/2a312c2e/5a17ba7fN0740c051.jpg"
+                    },
+                    {
+                         "type": "显卡",
+                         "url": "//img20.360buyimg.com/focus/s140x140_jfs/t12679/262/982342141/7023/d05a11e5/5a17ba57Nf179b4e4.jpg"
+                    },
+                    {
+                         "type": "游戏台式机",
+                         "url": "//img10.360buyimg.com/focus/s140x140_jfs/t12865/295/960489437/5723/4f38f11/5a17ba8bN911b7264.jpg"
+                    }
+                  
+               
+               ]
+          }
+
+     ]
+    
+
+},
+{
+     "id":"02",
+     "title":"手机数码",
+     "arr":[
+          {
+               "id": " 002",
+               "title": "热卖品牌",
+               "list":[
                     {
                          "type": "手机优盘",
                          "url": "//img14.360buyimg.com/focus/s140x140_jfs/t12511/359/951124397/4655/1f4b2503/5a16a585N73dd2d73.jpg"
@@ -123,7 +134,28 @@
                          "type": "键鼠套装",
                          "url": "//img11.360buyimg.com/focus/s140x140_jfs/t13687/323/893934580/3715/4657a7e6/5a16a56dN9e6309e0.jpg"
                     }
-               ]
-          }
-     ]
+               ]}]
+},
+{
+     "id":"03",
+     "title":"热门推荐",
+     "arr":[
+          {
+               "id": " 003",
+               "title": "热卖分类",
+               "list":[
+                    {
+                         "type": "家用打印机",
+                         "url": "//img13.360buyimg.com/focus/s140x140_jfs/t12526/166/988611883/3419/3c7507ac/5a17ba5dN8f6ffa5e.jpg"
+                    },
+                    {
+                         "type": "吃鸡装备",
+                         "url": "//img20.360buyimg.com/focus/s140x140_jfs/t16210/272/2297735843/7874/66447aee/5a9fa34bNff4ef403.jpg"
+                    },
+                    {
+                         "type": "曲屏显示器",
+                         "url": "//img30.360buyimg.com/focus/s140x140_jfs/t13798/322/988648789/3644/1adc5615/5a17ba6dNafc95373.jpg"
+                    }
+               ]}]
 }
+]
