@@ -35,9 +35,11 @@ export default {
   height: 100%;
 
   flex-grow: 1;
-  overflow-y: auto
-}
 
+}
+.rightgoods>ul{
+  overflow-y: auto
+} 
 .rightgoods img {
   width: 70px;
   height: 70px;

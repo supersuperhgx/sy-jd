@@ -43,7 +43,7 @@ export default {
 html,
 body {
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 #app {
   width: 100%;

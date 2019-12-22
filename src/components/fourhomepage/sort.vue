@@ -30,6 +30,7 @@ export default {
 .sort {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .sortcontent{
