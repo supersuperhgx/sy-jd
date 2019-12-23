@@ -13,15 +13,26 @@
 <script>
 import sorthead from "../sortpage/sorthead.vue";
 import leftmenu from "../sortpage/leftmenu.vue";
-// import menulist from "../menu/menulist.vue";
 import rightgoods from "../sortpage/rightgoods.vue";
 export default {
+  data(){
+    return{
+      list:[]
+    }
+  },
   components: {
     // menulist: menulist,
     sorthead: sorthead,
     leftmenu: leftmenu,
     rightgoods: rightgoods
-  }
+  },
+  created(){
+    this.$store.dispatch('getNewDate');
+    if(this.list){
+        this.list = this.$store.state.arr[0]
+        console.log(this.$store.state.arr[0])
+    }
+  },
 };
 </script>
 

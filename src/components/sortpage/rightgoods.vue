@@ -20,13 +20,14 @@ export default {
   },
   computed: {
     list() {
-      console.log(this.$store.state.arr);
+    
+      console.log( this.$store.state.arr);
       return this.$store.state.arr;
     }
   },
-  created(){
-    
-  }
+ 
+ 
+ 
 };
 </script>
 <style scoped>

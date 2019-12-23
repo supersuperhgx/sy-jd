@@ -3,6 +3,7 @@
     <crafthead></crafthead>
     <tolog></tolog>
     <countdown></countdown>
+    <wantto></wantto>
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import crafthead from "../craftpage/crafthead.vue";
 import tolog from "../craftpage/tolog.vue";
 import countdown from "../homepage/countdown.vue";
+import wantto from "../craftpage/wantto.vue";
  export default   {
     components:{
       crafthead:crafthead,
       tolog:tolog,
-      countdown:countdown
+      countdown:countdown,
+      wantto:wantto
     }
     }
 

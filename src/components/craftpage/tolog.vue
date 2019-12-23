@@ -1,8 +1,8 @@
 <template>
   <div class="tolog">
-    <div class="tologhead">
+    <div class="tologhead" v-if="show==1">
       <span>登录后可同步购物车账号中的商品</span>
-      <span class="log">登录</span>
+      <span @click="craftlog" class="log">登录</span>
     </div>
     <div class="logimg">
       <div>
@@ -11,7 +11,7 @@
           alt
         />
       </div>
-      <p>登录后可同步购物车中商品</p>
+      <p>{{logimg}}</p>
     </div>
     <div class="jdkillwrap">
       <span class="jdkill">京东秒杀</span>
@@ -19,7 +19,41 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      show:1
+    } 
+  },
+  created() {
+    this.craftshow();
+  },
+  computed: {
+    // craftshow() {
+    //   return this.$store.state.craftshow;
+    // },
+    logimg() {
+      return this.$store.state.logimg;
+    }
+  },
+
+  methods: {
+    craftlog() {
+      this.$router.push({ path: "unlog" });
+    },
+    craftshow() {
+      if (localStorage.getItem("show")) {
+        console.log(localStorage.getItem("show"))
+this.show = localStorage.getItem("show")
+        return localStorage.getItem("show");
+      } else {
+        console.log(this.$store.state.craftshow)
+        this.show = this.$store.state.craftshow
+        return this.$store.state.craftshow;
+      }
+    }
+  }
+};
 </script>
 <style  scoped>
 .tolog {
@@ -62,16 +96,16 @@ export default {};
   background-color: #f2270c;
 }
 
-.jdkillwrap{
-    z-index: 2;
-    position: relative;
-    padding: 0 15px;
-    background-color: #f7f7f7;
-    text-align: center
+.jdkillwrap {
+  z-index: 2;
+  position: relative;
+  padding: 0 15px;
+  background-color: #f7f7f7;
+  text-align: center;
 }
 
-
-.jdkill::before,.jdkill::after {
+.jdkill::before,
+.jdkill::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -82,5 +116,4 @@ export default {};
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
 </style>

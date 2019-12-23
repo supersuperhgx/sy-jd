@@ -1,12 +1,21 @@
 <template>
-  <div>
-    未登录1
+  <div class="log">
+   <div class="logwrap">
+     <loghead></loghead>
+     <formlog></formlog>
+     </div> 
+    
   </div>
 </template>
 
 <script>
+import loghead from "../logpage/loghead.vue";
+import formlog from "../logpage/formlog.vue";
  export default   {
-      
+      components:{
+        loghead:loghead,
+        formlog:formlog
+      }
     }
 
 
@@ -14,18 +23,18 @@
 
 
 <style scoped>
- div{
-   color: red
- }
- *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box
+ 
+
+.log{
+  background: #ffffff;
+  widows: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-html,body{
-  height: 100%
-}
-#app{
-  height: 100%
+
+.logwrap{
+   width: 86.6%;
+    height: 100%;
+    margin: 0 auto
 }
 </style>

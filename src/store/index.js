@@ -47,27 +47,42 @@ const store = new Vuex.Store({
             "工业品"
         ],
         newList: [],
-        arr: []
+        arr: [],
+        userinformation:{
+            username:"supersuperhgx",
+            passworld:"123"
+        },
+        craftshow:1,
+        logimg:"登录后可同步购物车中商品"
     },
     mutations: {
         getData(state, obj) {
             state.newList = obj
+            state.arr = obj[2]
+            console.log(state.arr)
             localStorage.setItem("data", JSON.stringify(state.newList))
         },
         check(state,item) {
-         
             state.newList.forEach(function(ele){
                 if(item == ele.title){
                     state.arr = ele.arr
                 }
             }) 
         },
+        login(state){
+          if(localStorage.getItem("user")!=""&&localStorage.getItem("pwd")!=""){
+            state.craftshow = 0,
+            localStorage.setItem("show",JSON.stringify(state.craftshow))
+            state.logimg="购物车空空如也，去逛逛吧"
+            
+          }
+           
+        }
 
 
     },
     actions: {
         getNewDate(context, val) {
-            // console.log(val)
             Axios.get("http://localhost:8080/menulist.json", val).then((res) => {
                 let data = res.data
                 context.commit("getData", data)
