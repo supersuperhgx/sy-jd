@@ -16,15 +16,23 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+    
+    };
   },
   computed: {
     list() {
-    
       console.log( this.$store.state.arr);
       return this.$store.state.arr;
     }
   },
+  //  created(){
+  //   this.$store.dispatch('getNewDate');
+  //   if(this.list){
+  //       this.list = this.$store.state.arr[0]
+  //       console.log(this.$store.state.arr[0])
+  //   }
+  // },
  
  
  

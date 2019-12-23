@@ -15,11 +15,11 @@ import sorthead from "../sortpage/sorthead.vue";
 import leftmenu from "../sortpage/leftmenu.vue";
 import rightgoods from "../sortpage/rightgoods.vue";
 export default {
-  data(){
-    return{
-      list:[]
-    }
-  },
+  // data(){
+  //   return{
+  //     list:[]
+  //   }
+  // },
   components: {
     // menulist: menulist,
     sorthead: sorthead,
