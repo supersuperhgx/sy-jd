@@ -15,9 +15,8 @@
             <img :src="item? item : '/images/error.jpg'" />
           </div>
           <div class="swiper-slide">
-            <img :src= this.$route.query.url />
+            <img :src="this.$route.query.url" />
           </div>
-          
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -487,11 +486,11 @@
     <div class="addshoppongcarjump" ref="addshoppongcarjump1">
       <div class="addshoppongcarjump_1">
         <div class="addshoppongcarjump_1_left">
-          <img ref="lzimg" :src="imgArr[0]" />
+          <img ref="lzimg" :src="this.$route.query.url" />
         </div>
         <div class="addshoppongcarjump_1_right">
           <span class="lza1price">
-            ￥{{msg}}
+            {{this.$route.query.price}}
             <i class="el-icon-close" @click="lzcancelzz"></i>
           </span>
           <span class="lza1">
@@ -517,11 +516,11 @@
         <div class="addshoppongcarjump_3_left">数量</div>
         <div class="addshoppongcarjump_3_right">
           <div class="addshoppongcarjump_3_right_1" @click="lzincrease">
-            <i class="el-icon-plus"></i>
+            <i class="el-icon-plus">-</i>
           </div>
           <div class="addshoppongcarjump_3_right_2">{{number}}</div>
           <div class="addshoppongcarjump_3_right_3" @click="lzminus">
-            <i class="el-icon-minus"></i>
+            <i class="el-icon-minus">+</i>
           </div>
         </div>
       </div>
@@ -562,6 +561,7 @@
 // import BackTop from "../components/st/BackTop/NormalBack.vue"; // 回到顶部
 // import goodsdetailtop from "../components/lz/goodsdetailtop.vue"; //顶部组件1
 // import goodsdetailtop1 from "../components/lz/goodsdetailtop1.vue";//顶部组件2
+
 export default {
   name: "goodsdetail",
   data() {
@@ -848,7 +848,7 @@ export default {
     },
     lastconfirm(a) {
       this.$store.commit("scAdd", a);
-      this.$router.push("/shoppingcar");
+      this.$router.push("/shoppingcraft");
     }
   }
 };
@@ -1747,6 +1747,27 @@ export default {
 
 .lzbottomtab_container_1 .lzitem1000 span:nth-child(1) {
   font-size: 25px;
+}
+
+.el-icon-chat-dot-round {
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/homepageimg/serve.jpg") no-repeat 50%;
+  background-size: auto 20px;
+}
+
+.el-icon-s-shop{
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/homepageimg/shop.jpg") no-repeat 50%;
+  background-size: auto 20px;
+}
+
+.el-icon-shopping-cart-2{
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/homepageimg/craft.jpg") no-repeat 50%;
+  background-size: auto 20px;
 }
 
 .lzbottomtab_container_2 {
