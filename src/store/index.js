@@ -53,7 +53,11 @@ const store = new Vuex.Store({
             passworld:"123"
         },
         craftshow:1,
-        logimg:"登录后可同步购物车中商品"
+        logimg:"登录后可同步购物车中商品",
+        path:"unlog",
+        path1:'mine',
+        islog:0
+        
     },
     mutations: {
         getData(state, obj) {
@@ -72,12 +76,16 @@ const store = new Vuex.Store({
         login(state){
           if(localStorage.getItem("user")!=""&&localStorage.getItem("pwd")!=""){
             state.craftshow = 0,
+            state.logimg="购物车空空如也，去逛逛吧",
+            // state.path = "mine",
             localStorage.setItem("show",JSON.stringify(state.craftshow))
-            state.logimg="购物车空空如也，去逛逛吧"
-            
+            localStorage.setItem("log",JSON.stringify(state.logimg))
+            localStorage.setItem("path",JSON.stringify(state.path))
+            localStorage.setItem("islog",JSON.stringify(state.islog))
           }
            
-        }
+        },
+       
 
 
     },

@@ -4,14 +4,14 @@
       <img src="../../assets/homepageimg/recommend.png" alt />
     </div>
     <div class="recommendcontent">
-      <div v-for="(item,index) in list" :key="index">
+      <div v-for="(item,index) in list" :key="index" @click="goods(item)">
         <div class="recommendimg">
           <img v-lazy="item.url" alt />
         </div>
         <div class="recommendtext">
           <span class="jdsup">
             <img src="../../assets/homepageimg/jdsup.png" alt />
-                {{item.title}}
+            {{item.title}}
           </span>
         </div>
         <div class="recommendbottom">
@@ -23,21 +23,30 @@
   </div>
 </template>
 <script>
-
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
-        list:[]
+      list: []
     };
   },
   mounted() {
-   axios.get('http://localhost:8080/goods.json').then(response => {
-                    // console.log(response.data.list);
-                    this.list = response.data.list
-                    // console.log(this.list)
-                },
-   )}
+    axios.get("http://localhost:8080/goods.json").then(response => {
+      this.list = response.data.list;
+    });
+  },
+  methods: {
+    goods(item) {
+      this.$router.push({
+        path: "goodsdetail",
+        query: {
+          url:item.url,
+          context: item.title,
+          price: item.price
+        }
+      });
+    }
+  }
 };
 </script>
 <style scoped>

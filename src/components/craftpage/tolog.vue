@@ -11,7 +11,8 @@
           alt
         />
       </div>
-      <p>{{logimg}}</p>
+      <p v-if="show==1">登录后可同步购物车中商品</p>
+      <p v-else>购物车空空如也，去逛逛吧</p>
     </div>
     <div class="jdkillwrap">
       <span class="jdkill">京东秒杀</span>
@@ -20,18 +21,15 @@
 </template>
 <script>
 export default {
-  data(){
+  data() {
     return {
-      show:1
-    } 
+      show: 1
+    };
   },
   created() {
     this.craftshow();
   },
   computed: {
-    // craftshow() {
-    //   return this.$store.state.craftshow;
-    // },
     logimg() {
       return this.$store.state.logimg;
     }
@@ -43,13 +41,9 @@ export default {
     },
     craftshow() {
       if (localStorage.getItem("show")) {
-        console.log(localStorage.getItem("show"))
-this.show = localStorage.getItem("show")
-        return localStorage.getItem("show");
-      } else {
-        console.log(this.$store.state.craftshow)
-        this.show = this.$store.state.craftshow
-        return this.$store.state.craftshow;
+        this.show = localStorage.getItem("show");
+      } else{
+        this.show = this.$store.state.craftshow;
       }
     }
   }

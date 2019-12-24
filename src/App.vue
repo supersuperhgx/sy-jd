@@ -24,11 +24,10 @@ export default {
       } else {
         document.querySelector(".homepage-head1").style.display = "none";
       }
-
-      // let height = document.querySelector(".east")
-      // console.log(height.scrollTop)
       console.log(window.innerHeight);
     });
+
+    
   }
 };
 </script>

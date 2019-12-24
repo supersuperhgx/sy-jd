@@ -76,11 +76,10 @@ export default {
         this.message1 = ""
     },
     login(){
-        // console.log(this.$store.state.userinformation)
+        
         if(this.$store.state.userinformation.username == this. message1 && this.$store.state.userinformation.passworld ==this. message2){
-                // console.log(1) 
                 this.warning = "",
-                this.$router.push({ path: "/" });
+                this.$router.push({ path: "mine" });
                 this.$store.commit("login");
                 localStorage.setItem("user",JSON.stringify(this.message1))
                 localStorage.setItem("pwd",JSON.stringify(this.message2))

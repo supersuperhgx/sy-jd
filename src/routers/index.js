@@ -4,6 +4,7 @@ import sort from "../components/fourhomepage/sort.vue"
 import shoppingcraft from "../components/fourhomepage/shoppingcraft.vue"
 import unlog from "../components/fourhomepage/unlog.vue"
 import mine from "../components/logpage/mine.vue"
+import goodsdetail from "../components/goodsdetail/goodsdetail.vue"
 const routes = [
     {
         path: "/",
@@ -38,6 +39,13 @@ const routes = [
         component: mine,
         meta:{
             isshow:true
+        }
+    },
+    {
+        path: "/goodsdetail",
+        component: goodsdetail,
+        meta:{
+            isshow:false
         }
     }
 ]

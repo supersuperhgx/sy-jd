@@ -57,7 +57,14 @@ export default {
       this.$router.push({ path: "shoppingcraft" });
     },
     jump4() {
-      this.$router.push({ path: "unlog" });
+     let show = localStorage.getItem('show');
+     if(show == 0){
+      this.$router.push({ path: this.$store.state.path1 });
+
+     }else{
+      this.$router.push({ path: this.$store.state.path }); 
+
+     }
     }
   }
 };
