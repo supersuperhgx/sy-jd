@@ -42,7 +42,21 @@
       </div>
     </div>
     <div class="sumcraft">
-      
+        <div class="sumcraftwrap">
+          <div class="suminput">
+            <input type="checkbox">
+            <span>全选</span>
+          </div>
+          <div class="sumprice">
+            <p><span class="total">总计：</span><span class="totalprice">￥169</span></p>
+            <p class="discount">已优惠￥10.00</p>
+            
+          </div>
+          <div class="craftconfirm">
+              <span>去结算</span>
+              <span>1件</span>
+          </div>
+        </div>
 
     </div>
   </div>
@@ -118,7 +132,8 @@ export default {
   margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 20px;
-  padding-right: 10px
+  padding-right: 10px;
+  border-bottom: 1px solid #cccccc
 }
 .craftinput {
   width: 13.3%;
@@ -178,4 +193,102 @@ export default {
   background: #f7f7f7;
   text-align: center
 }
+
+
+.sumcraft{
+  position: fixed;
+  bottom: 0;
+    width: 100%;
+  height: 6.2%;
+  background: #ffffff
+}
+
+.sumcraftwrap{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between
+}
+
+
+.sumprice{
+  width: 57.3%;
+  height: 100%;
+  border: 1px solid red
+}
+
+.craftconfirm{
+  flex-shrink: 0;
+    margin-left: 10px;
+    font-weight: 700;
+    display: block;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 2px;
+    background-color: #f2270c;
+    color: #fff;
+}
+
+
+.suminput{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+
+}
+.suminput>input{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%
+}
+
+.suminput>span{
+  width: 40px;
+    
+    font-size: 10px;
+    text-align: center;
+    height: 15px;
+    color: #999;
+}
+
+.sumprice>p{
+  text-align: right
+}
+.total{
+  font-weight: 700;
+    font-size: 16px;
+}
+
+.totalprice{
+      color: #f2270c;
+       font-weight: 700;
+    font-size: 16px;
+}
+
+.discount{
+  padding-top: 5px;
+    display: block;
+    font-size: 10px;
+    line-height: 1em;
+    color: #999;
+}
+.discount::after{
+      content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 6px;
+    height: 10px;
+    background-image: url("../../assets/homepageimg/toarrow.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* position: absolute; */
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+}
+
 </style>
