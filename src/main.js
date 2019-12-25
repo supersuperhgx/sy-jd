@@ -7,8 +7,7 @@ import VueLazyLoad from 'vue-lazyload'
 import router from"./routers/index.js"
 import App from './App.vue'
 import store from"./store/index.js"
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+
  Vue.use(VueLazyLoad,{
      preLoad: 1.3,
    
@@ -19,7 +18,7 @@ Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(vueSwiper)
-Vue.use(ElementUI);
+
 
 
 
