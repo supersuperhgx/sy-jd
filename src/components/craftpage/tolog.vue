@@ -4,6 +4,7 @@
       <span>登录后可同步购物车账号中的商品</span>
       <span @click="craftlog" class="log">登录</span>
     </div>
+    
     <div class="logimg">
       <div>
         <img
@@ -20,6 +21,8 @@
   </div>
 </template>
 <script>
+
+
 export default {
   data() {
     return {
@@ -32,7 +35,8 @@ export default {
   computed: {
     logimg() {
       return this.$store.state.logimg;
-    }
+    },
+  
   },
 
   methods: {

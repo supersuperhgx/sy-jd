@@ -1,11 +1,12 @@
 <template>
   <div class="goodsdetail" ref="goodsdetail">
-    <!--顶部导航-->
-    <div v-goodsinfo class="lzgoodsinfo11">
-      <goodsdetailtop></goodsdetailtop>
-    </div>
-    <div v-goodsinfo1 class="lzgoodsinfo12">
-      <goodsdetailtop1></goodsdetailtop1>
+    <div class="detailshead">
+      <div @click="detailback">
+        <span class="arrleft"></span>
+      </div>
+      <div>
+        <span class="threepoints"></span>
+      </div>
     </div>
     <!--顶部轮播图-->
     <div class="topBanner">
@@ -21,9 +22,6 @@
         <div class="swiper-pagination"></div>
       </div>
     </div>
-
-    <!--双11图片-->
-
     <!--价格-->
     <div class="goods_price_context">
       <div class="goods_price">
@@ -40,7 +38,7 @@
             降价提醒
           </span>
           <span class="goods_price_right_right">
-            <img src="../../assets/homepageimg/collect.png" />
+            
             收藏
           </span>
         </div>
@@ -469,9 +467,10 @@
               onclick="window.open('https://shop.m.jd.com/?shopId=29893&skuId=1600334440&categoryId=6994_6997_7016')"
             >进店</span>
           </div>
-          <div class="lzitem1000" @click="lztoshoppingcar">
+          <div class="lzitem1000" @click="toshoppingcar">
             <span class="el-icon-shopping-cart-2"></span>
             <span class="lzitem1000_span">购物车</span>
+            <span class="goodscount">{{number}} </span>
           </div>
         </div>
         <div class="lzbottomtab_container_2" @click="lzadd">加入购物车</div>
@@ -479,10 +478,10 @@
       </div>
     </div>
     <!--返回顶部-->
-    <BackTop></BackTop>
-    <!--遮罩层-->
+   
+   
     <div class="lzzhezhao" @click="lzcancelzz" ref="lzzhezhao1"></div>
-    <!--加入购物车弹窗-->
+  
     <div class="addshoppongcarjump" ref="addshoppongcarjump1">
       <div class="addshoppongcarjump_1">
         <div class="addshoppongcarjump_1_left">
@@ -504,22 +503,22 @@
       <div class="addshoppongcarjump_2">
         <div class="addshoppongcarjump_2_up">规格</div>
         <div class="addshoppongcarjump_2_down">
-          <div class="lzitemspan">20-40kg大型犬用</div>
-          <div class="lzitemspan">2个月以上猫咪用 0.5ml单支装</div>
-          <div class="lzitemspan">10-20kg中型犬用</div>
-          <div class="lzitemspan">10kg以下小型犬用</div>
-          <div class="lzitemspan">喷剂100ml 犬猫通用【现货发】</div>
+          <div class="lzitemspan">菠萝裤L码26片</div>
+          <div class="lzitemspan">菠萝裤S码136片</div>
+          <div class="lzitemspan">菠萝裤M码120片</div>
+          <div class="lzitemspan">菠萝裤M码104片</div>
+          <div class="lzitemspan">菠萝裤XL码88片</div>
         </div>
       </div>
 
       <div class="addshoppongcarjump_3">
         <div class="addshoppongcarjump_3_left">数量</div>
         <div class="addshoppongcarjump_3_right">
-          <div class="addshoppongcarjump_3_right_1" @click="lzincrease">
+          <div class="addshoppongcarjump_3_right_1" @click="increase">
             <i class="el-icon-plus">-</i>
           </div>
           <div class="addshoppongcarjump_3_right_2">{{number}}</div>
-          <div class="addshoppongcarjump_3_right_3" @click="lzminus">
+          <div class="addshoppongcarjump_3_right_3" @click="minus">
             <i class="el-icon-minus">+</i>
           </div>
         </div>
@@ -557,10 +556,7 @@
 </template>
 
 <script>
-// 商品详情
-// import BackTop from "../components/st/BackTop/NormalBack.vue"; // 回到顶部
-// import goodsdetailtop from "../components/lz/goodsdetailtop.vue"; //顶部组件1
-// import goodsdetailtop1 from "../components/lz/goodsdetailtop1.vue";//顶部组件2
+
 
 export default {
   name: "goodsdetail",
@@ -825,7 +821,7 @@ export default {
     lzadd() {
       this.$refs.goodsdetail.style.cssText = "position:fixed";
       this.$refs.lzzhezhao1.style.display = "block";
-      this.$refs.addshoppongcarjump1.style.transition = "height 0.5s";
+      this.$refs.addshoppongcarjump1.style.transition = "height 0.2s";
       this.$refs.addshoppongcarjump1.style.height = "70%";
       this.$refs.lzimg.style.top = "-30%";
     },
@@ -835,20 +831,27 @@ export default {
       this.$refs.addshoppongcarjump1.style.height = "0";
       this.$refs.lzimg.style.top = "0";
     },
-    lzincrease() {
+    minus() {
       this.number = this.number + 1;
     },
-    lzminus() {
+    increase() {
       if (this.number > 1) {
         this.number = this.number - 1;
       }
     },
-    lztoshoppingcar() {
-      this.$router.push("/shoppingcar");
-    },
-    lastconfirm(a) {
-      this.$store.commit("scAdd", a);
+    toshoppingcar() {
       this.$router.push("/shoppingcraft");
+    },
+    lastconfirm() {
+      // this.$store.commit("scAdd", a);
+      // this.$router.push("/shoppingcraft");
+      this.$refs.goodsdetail.style.cssText = "position:absolute";
+      this.$refs.lzzhezhao1.style.display = "none";
+      this.$refs.addshoppongcarjump1.style.height = "0";
+      this.$refs.lzimg.style.top = "0";
+    },
+    detailback(){
+      window.history.go(-1)
     }
   }
 };
@@ -858,6 +861,7 @@ export default {
 .goodsdetail {
   width: 100%;
   background-color: rgb(232, 232, 237);
+  position: relative;
 }
 
 .lzgoodsinfo11 {
@@ -990,12 +994,21 @@ export default {
   align-items: center;
   width: 25px;
   height: 25px;
+  position: relative;
+}
+.goods_price_right_right::after{
+      content: "";
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../../assets/homepageimg/collect.png");
+    background-repeat: no-repeat;
+    background-size: 25px 60px;
+    background-position: 0 -45px;
 }
 
-.goods_price_right_right > img {
-  width: 20px;
-  height: 20px;
-}
 .goods_desc {
   width: 100%;
   height: 99px;
@@ -1743,6 +1756,7 @@ export default {
   justify-content: space-between;
   padding: 5px 0;
   color: #999999;
+  position: relative;
 }
 
 .lzbottomtab_container_1 .lzitem1000 span:nth-child(1) {
@@ -1756,14 +1770,14 @@ export default {
   background-size: auto 20px;
 }
 
-.el-icon-s-shop{
+.el-icon-s-shop {
   width: 20px;
   height: 20px;
   background: url("../../assets/homepageimg/shop.jpg") no-repeat 50%;
   background-size: auto 20px;
 }
 
-.el-icon-shopping-cart-2{
+.el-icon-shopping-cart-2 {
   width: 20px;
   height: 20px;
   background: url("../../assets/homepageimg/craft.jpg") no-repeat 50%;
@@ -2062,5 +2076,56 @@ export default {
   align-items: center;
   justify-content: center;
   height: 10%;
+}
+
+.arrleft {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/homepageimg/arrowleft.png") no-repeat 50%;
+  background-size: 20px 20px;
+}
+
+.threepoints {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/homepageimg/points.png") no-repeat 50%;
+  background-size: 20px 20px;
+}
+.detailshead {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0px;
+  z-index: 999;
+}
+
+.detailshead > div {
+  background-color: #666;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  margin: 7px 5px 0 5px;
+}
+
+
+.goodscount{
+  position: absolute;
+    top: 0;
+   right: 15%;
+    display: inline-block;
+    background: #e4393c;
+    color: #fff;
+    font-size: 7px;
+    margin-left: -10px;
+    line-height: 9px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 1px 3px;
+    font-weight: 700;
 }
 </style>

@@ -2,6 +2,7 @@
   <div class="shoppingcraft">
     <crafthead></crafthead>
     <tolog></tolog>
+    <craftdetails></craftdetails>
     <countdown></countdown>
     <wantto></wantto>
   </div>
@@ -12,12 +13,14 @@ import crafthead from "../craftpage/crafthead.vue";
 import tolog from "../craftpage/tolog.vue";
 import countdown from "../homepage/countdown.vue";
 import wantto from "../craftpage/wantto.vue";
+import craftdetails from "../craftpage/craftdetails.vue"
  export default   {
     components:{
       crafthead:crafthead,
       tolog:tolog,
       countdown:countdown,
-      wantto:wantto
+      wantto:wantto,
+      craftdetails:craftdetails
     }
     }
 
