@@ -64,7 +64,7 @@ const store = new Vuex.Store({
     mutations: {
         getData(state, obj) {
             state.newList = obj
-            state.arr = obj[2]
+            // state.arr = obj[2]
             console.log(state.arr)
             localStorage.setItem("data", JSON.stringify(state.newList))
         },
@@ -74,6 +74,7 @@ const store = new Vuex.Store({
                     state.arr = ele.arr
                 }
             }) 
+          
         },
         lastconfirm(state){
             localStorage.setItem("buylist",JSON.stringify(state.buylist))

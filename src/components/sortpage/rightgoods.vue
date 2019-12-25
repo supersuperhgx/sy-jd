@@ -22,23 +22,17 @@ export default {
   },
   computed: {
     list() {
-      console.log( this.$store.state.arr);
       return this.$store.state.arr;
     }
   },
   methods:{
-    check(){
-      this.$store.commit("check")
-    }
+     check1() {
+      this.$store.commit("check", "热门推荐");
+    },
   },
    created(){
-    // this.$store.dispatch('getNewDate');
-    // if(this.list){
-    //     this.list = this.$store.state.arr[0]
-    //     console.log(this.$store.state.arr[0])
-    // }
-    this.check()
 
+  this.check1()
     }
   }
  

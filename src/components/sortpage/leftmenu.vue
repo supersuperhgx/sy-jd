@@ -18,6 +18,7 @@ export default {
   methods: {
     check(item) {
       this.$store.commit("check", item);
+      console.log(item)
     },
     
   },
