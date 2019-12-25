@@ -74,7 +74,7 @@ const store = new Vuex.Store({
                     state.arr = ele.arr
                 }
             }) 
-          
+          console.log(item)
         },
         lastconfirm(state){
             localStorage.setItem("buylist",JSON.stringify(state.buylist))

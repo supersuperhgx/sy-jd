@@ -15,11 +15,6 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-    
-    };
-  },
   computed: {
     list() {
       return this.$store.state.arr;
@@ -27,7 +22,7 @@ export default {
   },
   methods:{
      check1() {
-      this.$store.commit("check", "热门推荐");
+      this.$store.commit("check", "手机数码");
     },
   },
    created(){
