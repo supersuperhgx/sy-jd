@@ -35,6 +35,7 @@ export default {
     }
   },
   created() {
+    
     console.log(localStorage.getItem("buylist"))
   }
   // created(){
