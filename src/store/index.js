@@ -56,7 +56,9 @@ const store = new Vuex.Store({
         logimg:"登录后可同步购物车中商品",
         path:"unlog",
         path1:'mine',
-        islog:0
+        islog:0,
+        craftarr:[],
+        buylist:[],
         
     },
     mutations: {
@@ -73,6 +75,9 @@ const store = new Vuex.Store({
                 }
             }) 
         },
+        lastconfirm(state){
+            localStorage.setItem("buylist",JSON.stringify(state.buylist))
+        },
         login(state){
           if(localStorage.getItem("user")!=""&&localStorage.getItem("pwd")!=""){
             state.craftshow = 0,
@@ -85,6 +90,13 @@ const store = new Vuex.Store({
           }
            
         },
+        getcraft(state, obj1) {
+            // state.newList = obj
+            // state.arr = obj[2]
+            // console.log(state.arr)
+            // localStorage.setItem("data", JSON.stringify(state.newList))
+            state.craftarr = obj1
+        },
        
 
 
@@ -96,6 +108,12 @@ const store = new Vuex.Store({
                 context.commit("getData", data)
 
             })
+        },
+        getNewcraft(context,val1){
+            Axios.get("http://localhost:8080/goods.json",val1).then(response => {
+               let  craftlist = response.data.list;
+               context.commit("getcraft",craftlist)
+                         });
         }
     }
 })

@@ -1,7 +1,7 @@
 <template>
   <div class="craftwrap">
     <div class="crafthead">
-      <input type="checkbox" />
+      <input type="checkbox"  @change="checkAll($event)"/>
       <span class="jdzy">
         <i class="jd"></i> 京东自营
       </span>
@@ -10,13 +10,13 @@
       <img src="../../assets/homepageimg/change.jpg" alt />
       <span>购满1件，可用优惠价换购商品</span>
     </div>
-    <div class="craftdetails">
+    <div class="craftdetails" v-for="(item,index) in list" :key="index">
       <div class="craftinput">
-        <input type="checkbox" />
+        <input type="checkbox"   class="checkbox" :value="index"/>
       </div>
       <div class="goodsimg">
         <img
-          src="https://img10.360buyimg.com/mobilecms/s234x234_jfs/t1/94422/14/143/35077/5da82db6E45f6fcb4/9865ee5e9b23e4d9.jpg!q70.dpg.webp"
+          :src="item.url"
           alt
         />
       </div>
@@ -26,17 +26,17 @@
             src="https://img11.360buyimg.com/jdphoto/s102x28_jfs/t21409/260/833321392/886/c44769dd/5b1a1df5Nb769c394.png"
             alt
           />
-          <span class="goodsdec">巴布豆(BOBDOG)柔薄乐动纸尿裤L码104片(9-14kg)</span>
+          <span class="goodsdec">{{item.context}}</span>
         </span>
 
         <span class="craftsize">菠萝裤L码104片</span>
         <span class="change">满一件享换购</span>
         <div class="craftprice">
-          <span>￥169</span>
+          <span>{{item.price}}</span>
             <div>
-              <span class="minus">-</span>
-              <span class="goodscount">1</span>
-              <span class="plus">+</span>
+              <span class="minus" @click="minus">-</span>
+              <span class="goodscount">{{number}}</span>
+              <span class="plus" @click="plus">+</span>
             </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
     <div class="sumcraft">
         <div class="sumcraftwrap">
           <div class="suminput">
-            <input type="checkbox">
+            <input type="checkbox" @change="checkAll($event)">
             <span>全选</span>
           </div>
           <div class="sumprice">
@@ -65,9 +65,39 @@
 export default {
   data() {
     return {
-      checked: true
+      checked: true,
+      number:1,
+      value:""
     };
-  }
+  
+  },
+  methods:{
+   checkAll(e){
+    var checkObj = document.querySelectorAll('input');
+    for(let i = 0;i<checkObj.length;i++){
+      if(e.target.checked){
+        checkObj[i].checked =true
+      }else{
+         checkObj[i].checked =false
+      }
+    }
+ },
+//  minus(){
+//     if (this.number > 1) {
+//         this.number = this.number - 1;
+//       }
+//  },
+//  plus(){
+//      this.number = this.number + 1;
+//  }
+
+  },
+  computed:{
+    list(){
+      return JSON.parse(localStorage.getItem("buylist")) 
+    }
+  },
+
 };
 </script>
 <style  scoped>
@@ -200,7 +230,8 @@ export default {
   bottom: 0;
     width: 100%;
   height: 6.2%;
-  background: #ffffff
+  background: #ffffff;
+  z-index: 999
 }
 
 .sumcraftwrap{

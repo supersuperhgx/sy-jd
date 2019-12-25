@@ -1,7 +1,8 @@
 <template>
   <div class="shoppingcraft">
-    <crafthead></crafthead>
-    <tolog></tolog>
+    <crafthead v-if="list != null"></crafthead>
+    <!-- <crafthead v-if="list.length>0"></crafthead> -->
+    <tolog v-else></tolog>
     <craftdetails></craftdetails>
     <countdown></countdown>
     <wantto></wantto>
@@ -21,10 +22,29 @@ import craftdetails from "../craftpage/craftdetails.vue"
       countdown:countdown,
       wantto:wantto,
       craftdetails:craftdetails
-    }
-    }
+    },
+  
+    computed:{
+      list(){
+        return JSON.parse(localStorage.getItem('buylist'))
+      }
 
+    },
+    created(){
+      console.log(this.list)
+      console.log(this.list != null)
+    }
+    // created(){
+    //   this.getData()
+    // },
+    // methods:{
+    //   getData(){
+    //     this.cartList = JSON.parse(localStorage.getItem('buylist')) 
+    //     console.log(this.cartList == true)
+    //   }
+    // }
 
+    }
 </script>
 
 

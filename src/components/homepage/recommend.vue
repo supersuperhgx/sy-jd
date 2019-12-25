@@ -4,7 +4,7 @@
       <img src="../../assets/homepageimg/recommend.png" alt />
     </div>
     <div class="recommendcontent">
-      <div v-for="(item,index) in list" :key="index" @click="goods(item)">
+      <div v-for="(item,index) in list" :key="index" @click="goods(item,index)">
         <div class="recommendimg">
           <img v-lazy="item.url" alt />
         </div>
@@ -23,29 +23,39 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   data() {
     return {
-      list: []
+      // list: []
     };
   },
-  mounted() {
-    axios.get("http://localhost:8080/goods.json").then(response => {
-      this.list = response.data.list;
-    });
+  // mounted() {
+  //   axios.get("http://localhost:8080/goods.json").then(response => {
+  //     this.list = response.data.list;
+  //   });
+  // },
+  computed:{
+    list(){
+      return this.$store.state.craftarr;
+    }
   },
   methods: {
-    goods(item) {
+    goods(item,index) {
       this.$router.push({
         path: "goodsdetail",
         query: {
           url:item.url,
           context: item.title,
-          price: item.price
+          price: item.price,
+          id:index
         }
       });
+      // console.log(index)
     }
+  },
+  created() {
+    this.$store.dispatch('getNewcraft')
   }
 };
 </script>

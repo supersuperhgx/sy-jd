@@ -563,7 +563,7 @@ export default {
   data() {
     return {
       init_info: {},
-      number: 1,
+      number:1,
       goods_msg: 1,
       msg: "",
       imgArr: [],
@@ -748,6 +748,11 @@ export default {
       ]
     };
   },
+  computed:{
+    // number(){
+    //   return JSON.parse(localStorage.getItem("buylist")).length
+    // }
+  },
   components: {
     // BackTop,
     // goodsdetailtop,
@@ -819,11 +824,14 @@ export default {
   },
   methods: {
     lzadd() {
+      
+      
       this.$refs.goodsdetail.style.cssText = "position:fixed";
       this.$refs.lzzhezhao1.style.display = "block";
       this.$refs.addshoppongcarjump1.style.transition = "height 0.2s";
       this.$refs.addshoppongcarjump1.style.height = "70%";
       this.$refs.lzimg.style.top = "-30%";
+  
     },
     lzcancelzz() {
       this.$refs.goodsdetail.style.cssText = "position:absolute";
@@ -840,15 +848,16 @@ export default {
       }
     },
     toshoppingcar() {
-      this.$router.push("/shoppingcraft");
+      this.$router.push( {path:"/shoppingcraft",});
     },
     lastconfirm() {
-      // this.$store.commit("scAdd", a);
-      // this.$router.push("/shoppingcraft");
+      
       this.$refs.goodsdetail.style.cssText = "position:absolute";
       this.$refs.lzzhezhao1.style.display = "none";
       this.$refs.addshoppongcarjump1.style.height = "0";
       this.$refs.lzimg.style.top = "0";
+      this.$store.state.buylist.push(this.$route.query)
+      this.$store.commit("lastconfirm");
     },
     detailback(){
       window.history.go(-1)

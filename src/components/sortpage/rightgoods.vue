@@ -26,17 +26,25 @@ export default {
       return this.$store.state.arr;
     }
   },
-  //  created(){
-  //   this.$store.dispatch('getNewDate');
-  //   if(this.list){
-  //       this.list = this.$store.state.arr[0]
-  //       console.log(this.$store.state.arr[0])
-  //   }
-  // },
+  methods:{
+    check(){
+      this.$store.commit("check")
+    }
+  },
+   created(){
+    // this.$store.dispatch('getNewDate');
+    // if(this.list){
+    //     this.list = this.$store.state.arr[0]
+    //     console.log(this.$store.state.arr[0])
+    // }
+    this.check()
+
+    }
+  }
  
  
  
-};
+
 </script>
 <style scoped>
 .rightgoods {
