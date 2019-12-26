@@ -50,8 +50,10 @@
             src="https://img30.360buyimg.com/jdphoto/s102x28_jfs/t1/21715/30/300/2368/5c08cfc0E76d331d3/1b55766b4030f270.png"
           />
           {{this.$route.query.context}}
+           
         </p>
         <p>
+          
           官方保证*极速发货*现在下单马上发货！七天无理由退换*赠送运费险*放心购*欢迎抢购
           <span>查看&gt;</span>
         </p>
@@ -64,7 +66,8 @@
         <div class="coupon_container_up">
           <div>优惠</div>
           <div>
-            <span class="discount">满250-70</span>
+            <span class="discount">满250-70
+            </span>
           </div>
           <div>···</div>
         </div>
@@ -852,20 +855,24 @@ export default {
       this.$refs.addshoppongcarjump1.style.height = "0";
       this.$refs.lzimg.style.top = "0";
 
-    
-   var flag =false;
-   this.$store.state.buylist.some(item=>{
-     if(item.id == this.$route.query.id){
-       item.count++
-       flag =true;
-       return true
-     }
-   })
-    if(!flag){
-        this.$store.state.buylist.push(this.$route.query)
-    }
-      this.$store.commit("lastconfirm")
+      if (this.$store.state.buylist) {
+        var flag = false;
+        this.$store.state.buylist.some(item => {
+          if (item.id == this.$route.query.id) {
+            item.count++;
+            flag = true;
+            return true;
+          }
+        });
+        if (!flag) {
+          this.$store.state.buylist.push(this.$route.query);
+        }
+        this.$store.commit("lastconfirm");
+      }else{
+        this.$store.state.buylist =[]
+      }
     },
+
     detailback() {
       window.history.go(-1);
     }

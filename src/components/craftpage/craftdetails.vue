@@ -1,7 +1,7 @@
 <template>
   <div class="craftwrap">
     <div class="crafthead">
-      <input type="checkbox" @change="checkAll($event)" />
+      <input type="checkbox" @change="selectAll" v-model="checkAll" />
       <span class="jdzy">
         <i class="jd"></i> 京东自营
       </span>
@@ -12,7 +12,13 @@
     </div>
     <div class="craftdetails" v-for="(item,index) in list" :key="index">
       <div class="craftinput">
-        <input type="checkbox" class="checkbox" @change="test(index)" v-model="arr" :value="item.price*item.count" />
+        <input
+          type="checkbox"
+          class="checkbox"
+          @change="selectOne(index)"
+          v-model="checkItem"
+          :value="item.id"
+        />
       </div>
       <div class="goodsimg">
         <img :src="item.url" alt />
@@ -41,7 +47,7 @@
     <div class="sumcraft">
       <div class="sumcraftwrap">
         <div class="suminput">
-          <input type="checkbox" @change="checkAll($event)" />
+          <input type="checkbox" />
           <span>全选</span>
         </div>
         <div class="sumprice">
@@ -53,7 +59,7 @@
         </div>
         <div class="craftconfirm">
           <span>去结算</span>
-          <span>1件</span>
+          <span>{{piece}}件</span>
         </div>
       </div>
     </div>
@@ -63,66 +69,96 @@
 export default {
   data() {
     return {
-      checked: true,
-      num:1,
+      checkAll: false,
+      checkItem: [],
+      num: 1,
       arr: []
     };
   },
 
   methods: {
-    checkAll(e) {
-      var checkObj = document.querySelectorAll("input");
-      for (let i = 0; i < checkObj.length; i++) {
-        if (e.target.checked) {
-          checkObj[i].checked = true;
-        } else {
-          checkObj[i].checked = false;
+    selectOne(index) {
+      if (this.checkItem.length == this.list.length) {
+        this.checkAll = true;
+      } else {
+        this.checkAll = false;
+      }
+      if (this.list[index].isbuy) {
+        this.list[index].isbuy = false;
+      } else {
+        this.list[index].isbuy = true;
+      }
+    },
+    selectAll() {
+      this.checkItem = [];
+      if (!this.checkAll) {
+        for (var i = 0; i < this.list.length; i++) {
+          this.checkItem.push(this.list[i].id);
+          this.list[i].isbuy = true;
+        }
+      } else {
+        this.checkItem = [];
+        this.checkAll = false
+        for (var j = 0; j < this.list.length; j++) {
+          this.list[j].isbuy = false;
         }
       }
     },
-    test(index) {
+    test() {
       console.log(this.arr);
-      console.log(parseInt("￥219"));
-      console.log(JSON.parse(localStorage.getItem("buylist"))[0].count);
-      console.log(index)
     },
-    minus(index){
-      this.$store.state.buylist.some((item)=>{
-        if(item.id === this.$store.state.buylist[index].id){
-          if(item.count>1){
-            item.count--
-            this.$store.commit("lastconfirm")
+    minus(index) {
+      this.$store.state.buylist.some(item => {
+        if (item.id === this.$store.state.buylist[index].id) {
+          if (item.count >= 1) {
+            item.count--;
+            this.$store.commit("lastconfirm");
+          }
+          if (item.count == 0) {
+            this.$store.state.buylist.splice(index, 1);
+            this.$store.commit("lastconfirm");
           }
         }
-      })
-      
+      });
     },
-    plus(index){
+    plus(index) {
       // console.log(this.$store.state.buylist)
-      this.$store.state.buylist.some((item)=>{
-        if(item.id === this.$store.state.buylist[index].id){
-            item.count++
-      this.$store.commit("lastconfirm")
-         
+      this.$store.state.buylist.some(item => {
+        if (item.id === this.$store.state.buylist[index].id) {
+          item.count++;
+          this.$store.commit("lastconfirm");
         }
-      })
+      });
     }
-
   },
   computed: {
     list() {
-      return JSON.parse(localStorage.getItem("buylist"));
+      return this.$store.state.buylist;
     },
     total() {
-      var s = 0;
-      this.arr.forEach(function(ele) {
-        s += parseInt(ele);
-      });
-      return s;
+      var total = 0;
+      for (var i = 0; i < this.list.length; i++) {
+        if (this.list[i].isbuy) {
+          total +=
+            parseFloat(this.list[i].price) * parseFloat(this.list[i].count);
+        }
+      }
+      return total;
     },
-
+    piece() {
+      var piece = 0;
+      for (var i = 0; i < this.list.length; i++) {
+        if (this.list[i].isbuy) {
+          piece += parseInt(this.list[i].count);
+        }
+      }
+      return piece;
+    }
   },
-  mounted() {}
+  beforeMount() {
+    this.$store.state.buylist = JSON.parse(localStorage.getItem("buylist"));
+    console.log(this.$store.state.buylist);
+  }
 };
 </script>
 <style  scoped>

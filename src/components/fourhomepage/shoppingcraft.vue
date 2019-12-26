@@ -27,17 +27,28 @@ export default {
 
   computed: {
     list() {
-      if (localStorage.getItem("buylist")) {
-        return JSON.parse(localStorage.getItem("buylist"));
-      }else{
-        return []
-      }
+      // if (localStorage.getItem("buylist")) {
+      //   return JSON.parse(localStorage.getItem("buylist"));
+      // }else{
+      //   return []
+      // }
+    if(this.$store.state.buylist){
+      return this.$store.state.buylist
+    }else{
+      return []
+    }
+
+      
     }
   },
-  created() {
-    
-    console.log(localStorage.getItem("buylist"))
+  beforeMount(){
+    this.$store.state.buylist = JSON.parse(localStorage.getItem("buylist"))
+    // console.log(this.$store.state.buylist)
   }
+  // created() {
+    
+  //   console.log(localStorage.getItem("buylist"))
+  // }
   // created(){
   //   this.getData()
   // },

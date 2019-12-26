@@ -49,7 +49,9 @@ export default {
           context: item.title,
           price: item.price,
           id:index,
-          count:1
+          count:1,
+          isbuy:false
+          
         }
       });
       // console.log(index)
