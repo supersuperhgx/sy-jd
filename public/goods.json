@@ -2,16 +2,16 @@
     
     "code":200,
     "list":[
-        {"url":"./goods/1.jpg","title":"帮宝适 清新帮纸尿裤M72 京东专供","price":"￥136"},
-        {"url":"./goods/2.jpg","title":"巴布豆（BOBDOG超柔亲肤婴儿纸尿裤S204片箱装(4-8Kg)","price":"￥168"},
-        {"url":"./goods/3.jpg","title":"斯利安 孕妇专用洗发水沐浴露护发素牙膏 孕期洗护套装 280ml*3","price":"￥278"},
-        {"url":"./goods/4.jpg","title":" 巴布豆(BOBDOG) 超柔亲肤婴儿纸尿裤 M30片 【6-11Kg】","price":"￥24.9"},
-        {"url":"./goods/5.jpg","title":"倍康(Baken)柔薄天使纸尿裤M112片","price":"￥124"},
-        {"url":"./goods/6.jpg","title":"巴布豆(BOBDOG)柔薄乐动纸尿裤L码104片(9-14kg)","price":"￥169"},
-        {"url":"./goods/7.jpg","title":"进门口换鞋凳鞋柜式储物凳多功能鞋架沙发凳简约现代穿鞋凳 80A款栗子木黑皮大号皮面","price":"￥241"},
-        {"url":"./goods/8.jpg","title":"贝亲(Pigeon)蚕丝蛋白系列纸尿裤XL144片(12kg以上)","price":"￥219"},
-        {"url":"./goods/9.jpg","title":"【新客送奶粉罐，再送大礼】君乐宝舒适成长恬适3段奶粉婴幼儿配方三段奶粉宝宝牛奶粉400g一盒装","price":"￥139"},
-        {"url":"./goods/10.jpg","title":"<品牌直降>鞋柜衣架一体欧式入户带挂衣架组合衣帽柜门厅玄关隔断储物多功能鞋柜 2门挂衣架单柜全白色长55cm","price":"￥478"}
+        {"url":"./goods/1.jpg","title":"帮宝适 清新帮纸尿裤M72 京东专供","price":"136","count":"1"},
+        {"url":"./goods/2.jpg","title":"巴布豆（BOBDOG超柔亲肤婴儿纸尿裤S204片箱装(4-8Kg)","price":"168","count":"1"},
+        {"url":"./goods/3.jpg","title":"斯利安 孕妇专用洗发水沐浴露护发素牙膏 孕期洗护套装 280ml*3","price":"278","count":"1"},
+        {"url":"./goods/4.jpg","title":" 巴布豆(BOBDOG) 超柔亲肤婴儿纸尿裤 M30片 【6-11Kg】","price":"24.9","count":"1"},
+        {"url":"./goods/5.jpg","title":"倍康(Baken)柔薄天使纸尿裤M112片","price":"124","count":"1"},
+        {"url":"./goods/6.jpg","title":"巴布豆(BOBDOG)柔薄乐动纸尿裤L码104片(9-14kg)","price":"169","count":"1"},
+        {"url":"./goods/7.jpg","title":"进门口换鞋凳鞋柜式储物凳多功能鞋架沙发凳简约现代穿鞋凳 80A款栗子木黑皮大号皮面","price":"241","count":"1"},
+        {"url":"./goods/8.jpg","title":"贝亲(Pigeon)蚕丝蛋白系列纸尿裤XL144片(12kg以上)","price":"219","count":"1"},
+        {"url":"./goods/9.jpg","title":"【新客送奶粉罐，再送大礼】君乐宝舒适成长恬适3段奶粉婴幼儿配方三段奶粉宝宝牛奶粉400g一盒装","price":"139","count":"1"},
+        {"url":"./goods/10.jpg","title":"<品牌直降>鞋柜衣架一体欧式入户带挂衣架组合衣帽柜门厅玄关隔断储物多功能鞋柜 2门挂衣架单柜全白色长55cm","price":"478","count":"1"}
 
     ]
 }

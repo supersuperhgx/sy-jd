@@ -77,7 +77,10 @@ const store = new Vuex.Store({
           console.log(item)
         },
         lastconfirm(state){
+           
             localStorage.setItem("buylist",JSON.stringify(state.buylist))
+            console.log(state.buylist)
+            
         },
         login(state){
           if(localStorage.getItem("user")!=""&&localStorage.getItem("pwd")!=""){
@@ -99,7 +102,7 @@ const store = new Vuex.Store({
             state.craftarr = obj1
         },
        
-
+       
 
     },
     actions: {

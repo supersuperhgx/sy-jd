@@ -37,10 +37,7 @@
             />
             降价提醒
           </span>
-          <span class="goods_price_right_right">
-            
-            收藏
-          </span>
+          <span class="goods_price_right_right">收藏</span>
         </div>
       </div>
     </div>
@@ -470,7 +467,8 @@
           <div class="lzitem1000" @click="toshoppingcar">
             <span class="el-icon-shopping-cart-2"></span>
             <span class="lzitem1000_span">购物车</span>
-            <span class="goodscount">{{number}} </span>
+            <span class="goodscount">{{count}}</span>
+            <!-- <div>{{this.$route.query.count}}</div> -->
           </div>
         </div>
         <div class="lzbottomtab_container_2" @click="lzadd">加入购物车</div>
@@ -478,10 +476,9 @@
       </div>
     </div>
     <!--返回顶部-->
-   
-   
+
     <div class="lzzhezhao" @click="lzcancelzz" ref="lzzhezhao1"></div>
-  
+
     <div class="addshoppongcarjump" ref="addshoppongcarjump1">
       <div class="addshoppongcarjump_1">
         <div class="addshoppongcarjump_1_left">
@@ -556,14 +553,12 @@
 </template>
 
 <script>
-
-
 export default {
   name: "goodsdetail",
   data() {
     return {
       init_info: {},
-      number:1,
+      number: 1,
       goods_msg: 1,
       msg: "",
       imgArr: [],
@@ -748,10 +743,14 @@ export default {
       ]
     };
   },
-  computed:{
-    // number(){
-    //   return JSON.parse(localStorage.getItem("buylist")).length
-    // }
+  computed: {
+    count() {
+      if (localStorage.getItem("buylist")) {
+        return JSON.parse(localStorage.getItem("buylist")).length;
+      } else {
+        return 0;
+      }
+    }
   },
   components: {
     // BackTop,
@@ -824,14 +823,11 @@ export default {
   },
   methods: {
     lzadd() {
-      
-      
       this.$refs.goodsdetail.style.cssText = "position:fixed";
       this.$refs.lzzhezhao1.style.display = "block";
       this.$refs.addshoppongcarjump1.style.transition = "height 0.2s";
       this.$refs.addshoppongcarjump1.style.height = "70%";
       this.$refs.lzimg.style.top = "-30%";
-  
     },
     lzcancelzz() {
       this.$refs.goodsdetail.style.cssText = "position:absolute";
@@ -848,19 +844,30 @@ export default {
       }
     },
     toshoppingcar() {
-      this.$router.push( {path:"/shoppingcraft",});
+      this.$router.push({ path: "/shoppingcraft" });
     },
     lastconfirm() {
-      
       this.$refs.goodsdetail.style.cssText = "position:absolute";
       this.$refs.lzzhezhao1.style.display = "none";
       this.$refs.addshoppongcarjump1.style.height = "0";
       this.$refs.lzimg.style.top = "0";
-      this.$store.state.buylist.push(this.$route.query)
-      this.$store.commit("lastconfirm");
+
+    
+   var flag =false;
+   this.$store.state.buylist.some(item=>{
+     if(item.id == this.$route.query.id){
+       item.count++
+       flag =true;
+       return true
+     }
+   })
+    if(!flag){
+        this.$store.state.buylist.push(this.$route.query)
+    }
+      this.$store.commit("lastconfirm")
     },
-    detailback(){
-      window.history.go(-1)
+    detailback() {
+      window.history.go(-1);
     }
   }
 };
@@ -1005,17 +1012,17 @@ export default {
   height: 25px;
   position: relative;
 }
-.goods_price_right_right::after{
-      content: "";
-    position: absolute;
-    top: 0;
-    left: 12px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../../assets/homepageimg/collect.png");
-    background-repeat: no-repeat;
-    background-size: 25px 60px;
-    background-position: 0 -45px;
+.goods_price_right_right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  width: 25px;
+  height: 25px;
+  background-image: url("../../assets/homepageimg/collect.png");
+  background-repeat: no-repeat;
+  background-size: 25px 60px;
+  background-position: 0 -45px;
 }
 
 .goods_desc {
@@ -2121,20 +2128,19 @@ export default {
   margin: 7px 5px 0 5px;
 }
 
-
-.goodscount{
+.goodscount {
   position: absolute;
-    top: 0;
-   right: 15%;
-    display: inline-block;
-    background: #e4393c;
-    color: #fff;
-    font-size: 7px;
-    margin-left: -10px;
-    line-height: 9px;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    padding: 1px 3px;
-    font-weight: 700;
+  top: 0;
+  right: 15%;
+  display: inline-block;
+  background: #e4393c;
+  color: #fff;
+  font-size: 7px;
+  margin-left: -10px;
+  line-height: 9px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 1px 3px;
+  font-weight: 700;
 }
 </style>

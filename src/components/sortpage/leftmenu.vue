@@ -1,11 +1,12 @@
 <template>
-  <div class="leftmenu">
+  <div class="leftmenu" ref="wrap">
     <ul>
       <li v-for="(item,index) in list" :key="index" @click="check(item)">{{item}}</li>
     </ul>
   </div>
 </template>
 <script>
+import BScroll from 'better-scroll';
 export default {
   data() {
     return {};
@@ -23,8 +24,14 @@ export default {
     
   },
   created() {
-    this.$store.dispatch('getNewDate')
-  }
+    this.$store.dispatch('getNewDate');
+    this.$nextTick(() => {
+
+     this.scroll = new BScroll(this.$refs.wrap);
+
+    });
+  },
+  
 };
 </script>
 
@@ -44,6 +51,6 @@ export default {
   text-align: center;
   line-height: 46px;
   font-size: 14px;
-  /* border: 1px solid red */
+
 }
 </style>

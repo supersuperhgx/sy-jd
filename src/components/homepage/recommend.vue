@@ -48,7 +48,8 @@ export default {
           url:item.url,
           context: item.title,
           price: item.price,
-          id:index
+          id:index,
+          count:1
         }
       });
       // console.log(index)

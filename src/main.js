@@ -8,6 +8,8 @@ import router from"./routers/index.js"
 import App from './App.vue'
 import store from"./store/index.js"
 
+
+
  Vue.use(VueLazyLoad,{
      preLoad: 1.3,
    

@@ -1,7 +1,7 @@
 <template>
   <div class="craftwrap">
     <div class="crafthead">
-      <input type="checkbox"  @change="checkAll($event)"/>
+      <input type="checkbox" @change="checkAll($event)" />
       <span class="jdzy">
         <i class="jd"></i> 京东自营
       </span>
@@ -12,13 +12,10 @@
     </div>
     <div class="craftdetails" v-for="(item,index) in list" :key="index">
       <div class="craftinput">
-        <input type="checkbox"   class="checkbox" :value="index"/>
+        <input type="checkbox" class="checkbox" @change="test(index)" v-model="arr" :value="item.price*item.count" />
       </div>
       <div class="goodsimg">
-        <img
-          :src="item.url"
-          alt
-        />
+        <img :src="item.url" alt />
       </div>
       <div class="detailsright">
         <span class="jdimg">
@@ -32,32 +29,33 @@
         <span class="craftsize">菠萝裤L码104片</span>
         <span class="change">满一件享换购</span>
         <div class="craftprice">
-          <span>{{item.price}}</span>
-            <div>
-              <span class="minus" @click="minus">-</span>
-              <span class="goodscount">{{number}}</span>
-              <span class="plus" @click="plus">+</span>
-            </div>
+          <span>{{item.price*item.count}}</span>
+          <div>
+            <span class="minus" @click="minus(index)">-</span>
+            <span class="goodscount">{{item.count}}</span>
+            <span class="plus" @click="plus(index)">+</span>
+          </div>
         </div>
       </div>
     </div>
     <div class="sumcraft">
-        <div class="sumcraftwrap">
-          <div class="suminput">
-            <input type="checkbox" @change="checkAll($event)">
-            <span>全选</span>
-          </div>
-          <div class="sumprice">
-            <p><span class="total">总计：</span><span class="totalprice">￥169</span></p>
-            <p class="discount">已优惠￥10.00</p>
-            
-          </div>
-          <div class="craftconfirm">
-              <span>去结算</span>
-              <span>1件</span>
-          </div>
+      <div class="sumcraftwrap">
+        <div class="suminput">
+          <input type="checkbox" @change="checkAll($event)" />
+          <span>全选</span>
         </div>
-
+        <div class="sumprice">
+          <p>
+            <span class="total">总计：</span>
+            <span class="totalprice">{{total}}</span>
+          </p>
+          <p class="discount">已优惠￥10.00</p>
+        </div>
+        <div class="craftconfirm">
+          <span>去结算</span>
+          <span>1件</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -66,38 +64,65 @@ export default {
   data() {
     return {
       checked: true,
-      number:1,
-      value:""
+      num:1,
+      arr: []
     };
-  
   },
-  methods:{
-   checkAll(e){
-    var checkObj = document.querySelectorAll('input');
-    for(let i = 0;i<checkObj.length;i++){
-      if(e.target.checked){
-        checkObj[i].checked =true
-      }else{
-         checkObj[i].checked =false
+
+  methods: {
+    checkAll(e) {
+      var checkObj = document.querySelectorAll("input");
+      for (let i = 0; i < checkObj.length; i++) {
+        if (e.target.checked) {
+          checkObj[i].checked = true;
+        } else {
+          checkObj[i].checked = false;
+        }
       }
+    },
+    test(index) {
+      console.log(this.arr);
+      console.log(parseInt("￥219"));
+      console.log(JSON.parse(localStorage.getItem("buylist"))[0].count);
+      console.log(index)
+    },
+    minus(index){
+      this.$store.state.buylist.some((item)=>{
+        if(item.id === this.$store.state.buylist[index].id){
+          if(item.count>1){
+            item.count--
+            this.$store.commit("lastconfirm")
+          }
+        }
+      })
+      
+    },
+    plus(index){
+      // console.log(this.$store.state.buylist)
+      this.$store.state.buylist.some((item)=>{
+        if(item.id === this.$store.state.buylist[index].id){
+            item.count++
+      this.$store.commit("lastconfirm")
+         
+        }
+      })
     }
- },
-//  minus(){
-//     if (this.number > 1) {
-//         this.number = this.number - 1;
-//       }
-//  },
-//  plus(){
-//      this.number = this.number + 1;
-//  }
 
   },
-  computed:{
-    list(){
-      return JSON.parse(localStorage.getItem("buylist")) 
-    }
-  },
+  computed: {
+    list() {
+      return JSON.parse(localStorage.getItem("buylist"));
+    },
+    total() {
+      var s = 0;
+      this.arr.forEach(function(ele) {
+        s += parseInt(ele);
+      });
+      return s;
+    },
 
+  },
+  mounted() {}
 };
 </script>
 <style  scoped>
@@ -163,7 +188,7 @@ export default {
   padding-top: 10px;
   padding-bottom: 20px;
   padding-right: 10px;
-  border-bottom: 1px solid #cccccc
+  border-bottom: 1px solid #cccccc;
 }
 .craftinput {
   width: 13.3%;
@@ -195,131 +220,125 @@ export default {
   font-size: 10px;
 }
 
-
-.craftprice>span{
+.craftprice > span {
   line-height: 16px;
-    color: #f2270c;
-    font-size: 16px;
-    
+  color: #f2270c;
+  font-size: 16px;
 }
 
-.craftprice{
+.craftprice {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
-.minus,.plus{
+.minus,
+.plus {
   display: inline-block;
   width: 20px;
   height: 20px;
   background: #f7f7f7;
-  text-align: center
+  text-align: center;
 }
 
-.goodscount{
+.goodscount {
   display: inline-block;
   width: 30px;
   height: 20px;
   background: #f7f7f7;
-  text-align: center
+  text-align: center;
 }
 
-
-.sumcraft{
+.sumcraft {
   position: fixed;
   bottom: 0;
-    width: 100%;
+  width: 100%;
   height: 6.2%;
   background: #ffffff;
-  z-index: 999
+  z-index: 999;
 }
 
-.sumcraftwrap{
+.sumcraftwrap {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
-
-.sumprice{
+.sumprice {
   width: 57.3%;
   height: 100%;
-  border: 1px solid red
+  border: 1px solid red;
 }
 
-.craftconfirm{
+.craftconfirm {
   flex-shrink: 0;
-    margin-left: 10px;
-    font-weight: 700;
-    display: block;
-    width: 110px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 2px;
-    background-color: #f2270c;
-    color: #fff;
+  margin-left: 10px;
+  font-weight: 700;
+  display: block;
+  width: 110px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 2px;
+  background-color: #f2270c;
+  color: #fff;
 }
 
-
-.suminput{
+.suminput {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
-
+  align-items: center;
 }
-.suminput>input{
+.suminput > input {
   width: 20px;
   height: 20px;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
-.suminput>span{
+.suminput > span {
   width: 40px;
-    
-    font-size: 10px;
-    text-align: center;
-    height: 15px;
-    color: #999;
+
+  font-size: 10px;
+  text-align: center;
+  height: 15px;
+  color: #999;
 }
 
-.sumprice>p{
-  text-align: right
+.sumprice > p {
+  text-align: right;
 }
-.total{
+.total {
   font-weight: 700;
-    font-size: 16px;
+  font-size: 16px;
 }
 
-.totalprice{
-      color: #f2270c;
-       font-weight: 700;
-    font-size: 16px;
+.totalprice {
+  color: #f2270c;
+  font-weight: 700;
+  font-size: 16px;
 }
 
-.discount{
+.discount {
   padding-top: 5px;
-    display: block;
-    font-size: 10px;
-    line-height: 1em;
-    color: #999;
+  display: block;
+  font-size: 10px;
+  line-height: 1em;
+  color: #999;
 }
-.discount::after{
-      content: "";
-    display: inline-block;
-    vertical-align: middle;
-    width: 6px;
-    height: 10px;
-    background-image: url("../../assets/homepageimg/toarrow.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    /* position: absolute; */
-    right: 0;
-    top: 50%;
-    margin-top: -5px;
+.discount::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 6px;
+  height: 10px;
+  background-image: url("../../assets/homepageimg/toarrow.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  /* position: absolute; */
+  right: 0;
+  top: 50%;
+  margin-top: -5px;
 }
-
 </style>
