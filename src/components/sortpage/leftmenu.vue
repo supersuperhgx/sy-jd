@@ -1,15 +1,17 @@
 <template>
   <div class="leftmenu" ref="wrap">
-    <ul>
-      <li v-for="(item,index) in list" :key="index" @click="check(item)">{{item}}</li>
+    <ul >
+      <li v-for="(item,index) in list" :key="index" @click="check(item,index)">{{item}}</li>
     </ul>
   </div>
 </template>
 <script>
-import BScroll from 'better-scroll';
+import BScroll from 'better-scroll'
 export default {
   data() {
-    return {};
+    return {
+      wrap:{}
+    };
   },
   computed: {
     list() {
@@ -17,21 +19,32 @@ export default {
     }
   },
   methods: {
-    check(item) {
+     initScroll() {
+       if(!this.scroll){
+          this.scroll = new BScroll(this.$refs.wrap,{
+                  click:true,
+                  scrollY:true
+       })}else{
+         this.scroll.refresh();
+       }
+            },
+    check(item, index) {
       this.$store.commit("check", item);
-      console.log(item)
-    },
-    
+      let element = this.$refs.wrap.querySelectorAll("li")[index];
+      console.log(element)
+      this.scroll.scrollToElement(element,300,0,70);
+      console.log(this.scroll)
+    }
   },
   created() {
-    this.$store.dispatch('getNewDate');
+    this.$store.dispatch("getNewDate");
     this.$nextTick(() => {
-
-     this.scroll = new BScroll(this.$refs.wrap);
-
+      setTimeout(()=>{
+                    this.initScroll();
+                },10)
+      
     });
-  },
-  
+  }
 };
 </script>
 
@@ -39,11 +52,11 @@ export default {
 .leftmenu {
   width: 22.66%;
   height: 100%;
+  overflow: hidden;
 }
 .leftmenu ul {
   width: 100%;
-  height: 100%;
-  overflow-y: auto;
+  height: 1000%;
 }
 .leftmenu ul li {
   width: 100%;
@@ -51,6 +64,5 @@ export default {
   text-align: center;
   line-height: 46px;
   font-size: 14px;
-
 }
 </style>

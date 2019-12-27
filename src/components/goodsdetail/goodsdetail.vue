@@ -49,11 +49,10 @@
           <img
             src="https://img30.360buyimg.com/jdphoto/s102x28_jfs/t1/21715/30/300/2368/5c08cfc0E76d331d3/1b55766b4030f270.png"
           />
+
           {{this.$route.query.context}}
-           
         </p>
         <p>
-          
           官方保证*极速发货*现在下单马上发货！七天无理由退换*赠送运费险*放心购*欢迎抢购
           <span>查看&gt;</span>
         </p>
@@ -66,8 +65,7 @@
         <div class="coupon_container_up">
           <div>优惠</div>
           <div>
-            <span class="discount">满250-70
-            </span>
+            <span class="discount">满250-70</span>
           </div>
           <div>···</div>
         </div>
@@ -495,7 +493,7 @@
           <span class="lza1">
             <span class="lza1-1">已选</span>
             <span class="lzgoods_desc">{{goods_desc}}</span>
-            <span class="lza1-2">{{number}}个</span>
+            <span class="lza1-2">{{choose}}个</span>
           </span>
         </div>
       </div>
@@ -517,7 +515,7 @@
           <div class="addshoppongcarjump_3_right_1" @click="increase">
             <i class="el-icon-plus">-</i>
           </div>
-          <div class="addshoppongcarjump_3_right_2">{{number}}</div>
+          <div class="addshoppongcarjump_3_right_2">{{choose}}</div>
           <div class="addshoppongcarjump_3_right_3" @click="minus">
             <i class="el-icon-minus">+</i>
           </div>
@@ -748,18 +746,30 @@ export default {
   },
   computed: {
     count() {
-      if (localStorage.getItem("buylist")) {
-        return JSON.parse(localStorage.getItem("buylist")).length;
-      } else {
-        return 0;
+      var sum = 0;
+      if (this.$store.state.buylist) {
+        this.$store.state.buylist.forEach(ele => {
+          sum += parseInt( ele.count)
+        });
       }
+
+      return sum;
+    },
+    choose() {
+      var choose = 1;
+      if (this.$store.state.buylist) {
+        this.$store.state.buylist.some(item => {
+          if (item.id == this.$route.query.id) {
+            console.log(item.count);
+            choose = item.count;
+           
+          }
+        });
+      }
+      return choose;
     }
   },
-  components: {
-    // BackTop,
-    // goodsdetailtop,
-    // goodsdetailtop1
-  },
+
   directives: {
     goodsinfo: {
       inserted: function(el) {
@@ -792,24 +802,6 @@ export default {
       }
     }
   },
-  //   mounted() {
-  //     var mySwiper = new Swiper(".indexlz", {
-  //       pagination: {
-  //         el: ".swiper-pagination",
-  //         clickable: true
-  //       },
-  //       autoplay: false,
-  //       loop: true
-  //     });
-  //     var mySwiper1 = new Swiper(".indexlz1", {
-  //       pagination: {
-  //         el: ".swiper-pagination",
-  //         clickable: true
-  //       },
-  //       autoplay: false,
-  //       loop: true
-  //     });
-  //   },
   created() {
     window.scrollTo(0, 0);
     this.init_info = this.$store.state.goodDetails;
@@ -839,12 +831,47 @@ export default {
       this.$refs.lzimg.style.top = "0";
     },
     minus() {
-      this.number = this.number + 1;
+      if (this.$store.state.buylist) {
+        var flag = false;
+        this.$store.state.buylist.some(item => {
+          if (item.id == this.$route.query.id) {
+            item.count++;
+            flag = true;
+            return true;
+          }
+        })
+        if (!flag) {
+          this.$store.state.buylist.push(this.$route.query);
+            this.$store.state.buylist.some(item => {
+               if (item.id == this.$route.query.id){
+                  item.count++;
+               }
+            })
+        }
+      } else {
+        this.$store.state.buylist = [];
+      }
+      this.$store.commit("lastconfirm");
     },
     increase() {
-      if (this.number > 1) {
-        this.number = this.number - 1;
+      if (this.$store.state.buylist) {
+    
+        this.$store.state.buylist.some(item => {
+          if (item.id == this.$route.query.id) {
+            if (item.count >= 1)
+            {item.count--} 
+           
+            return true;
+          }
+        });
+        // if (!flag) {
+        //   this.$store.state.buylist.push(this.$route.query);
+        // }
       }
+      //  else{
+      //    this.$store.state.buylist=[]
+      //  }
+      this.$store.commit("lastconfirm");
     },
     toshoppingcar() {
       this.$router.push({ path: "/shoppingcraft" });
@@ -859,7 +886,7 @@ export default {
         var flag = false;
         this.$store.state.buylist.some(item => {
           if (item.id == this.$route.query.id) {
-            item.count++;
+            // item.count++;
             flag = true;
             return true;
           }
@@ -868,14 +895,17 @@ export default {
           this.$store.state.buylist.push(this.$route.query);
         }
         this.$store.commit("lastconfirm");
-      }else{
-        this.$store.state.buylist =[]
+      } else {
+        this.$store.state.buylist = [];
       }
     },
 
     detailback() {
       window.history.go(-1);
     }
+  },
+  beforeMount() {
+    this.$store.state.buylist = JSON.parse(localStorage.getItem("buylist"));
   }
 };
 </script>

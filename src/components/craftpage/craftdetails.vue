@@ -47,7 +47,7 @@
     <div class="sumcraft">
       <div class="sumcraftwrap">
         <div class="suminput">
-          <input type="checkbox" />
+          <input type="checkbox" @change="selectAll" v-model="checkAll" />
           <span>全选</span>
         </div>
         <div class="sumprice">
@@ -91,11 +91,13 @@ export default {
     },
     selectAll() {
       this.checkItem = [];
-      if (!this.checkAll) {
+      if (this.checkAll) {
         for (var i = 0; i < this.list.length; i++) {
           this.checkItem.push(this.list[i].id);
           this.list[i].isbuy = true;
+        
         }
+       
       } else {
         this.checkItem = [];
         this.checkAll = false
