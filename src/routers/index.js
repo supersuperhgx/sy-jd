@@ -5,6 +5,7 @@ import shoppingcraft from "../components/fourhomepage/shoppingcraft.vue"
 import unlog from "../components/fourhomepage/unlog.vue"
 import mine from "../components/logpage/mine.vue"
 import goodsdetail from "../components/goodsdetail/goodsdetail.vue"
+import seek from "../components/homepage/seek.vue"
 const routes = [
     {
         path: "/",
@@ -39,6 +40,13 @@ const routes = [
         component: mine,
         meta:{
             isshow:true
+        }
+    },
+    {
+        path: "/seek",
+        component: seek,
+        meta:{
+            isshow:false
         }
     },
     {

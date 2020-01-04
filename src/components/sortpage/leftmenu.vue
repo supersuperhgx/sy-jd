@@ -23,7 +23,8 @@ export default {
        if(!this.scroll){
           this.scroll = new BScroll(this.$refs.wrap,{
                   click:true,
-                  scrollY:true
+                  scrollY:true,
+                  startY: 0
        })}else{
          this.scroll.refresh();
        }
@@ -31,7 +32,7 @@ export default {
     check(item, index) {
       this.$store.commit("check", item);
       let element = this.$refs.wrap.querySelectorAll("li")[index];
-      console.log(element)
+      // console.log(element)
       this.scroll.scrollToElement(element,300,0,70);
       console.log(this.scroll)
     }
@@ -51,12 +52,12 @@ export default {
 <style scoped>
 .leftmenu {
   width: 22.66%;
-  height: 100%;
+  height: 94.1%;
   overflow: hidden;
 }
 .leftmenu ul {
   width: 100%;
-  height: 1000%;
+  height: 150%;
 }
 .leftmenu ul li {
   width: 100%;

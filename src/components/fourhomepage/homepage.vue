@@ -6,7 +6,7 @@
         <div class="homemenu" @click="homemenujump">
           <span></span>
         </div>
-        <div class="homepageinput">
+        <div class="homepageinput" @click="jumpinput()">
           <span class="jdimg"></span>
           <i></i>
           <span class="jdsprites"></span>
@@ -68,6 +68,9 @@ export default {
     },
     scroll(){
       window.scrollTo(0,0)
+    },
+    jumpinput(){
+       this.$router.push({ path: "seek" });
     }
   }
 };

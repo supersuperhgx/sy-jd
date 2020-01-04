@@ -23,6 +23,7 @@ export default {
   methods:{
      check1() {
       this.$store.commit("check", "手机数码");
+      console.log(1)
     },
   },
    created(){

@@ -65,7 +65,7 @@ const store = new Vuex.Store({
         getData(state, obj) {
             state.newList = obj
             // state.arr = obj[2]
-            console.log(state.arr)
+            // console.log(state.arr)
             localStorage.setItem("data", JSON.stringify(state.newList))
         },
         check(state,item) {
@@ -110,7 +110,7 @@ const store = new Vuex.Store({
             Axios.get("http://localhost:8080/menulist.json", val).then((res) => {
                 let data = res.data
                 context.commit("getData", data)
-
+                console.log(2)
             })
         },
         getNewcraft(context,val1){
