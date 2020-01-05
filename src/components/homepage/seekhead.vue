@@ -33,10 +33,10 @@ export default {
       window.history.go(-1);
     },
     ele() {
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-      this.timer = setTimeout(() => {
+      // if (this.timer) {
+      //   clearTimeout(this.timer);
+      // }
+      // this.timer = setTimeout(() => {
         this.myItem = this.mySeeklist.filter(item => {
           if (this.message != "") {
             if (item.title.includes(this.message)) {
@@ -45,7 +45,7 @@ export default {
             }
           }
         });
-      }, 500);
+      // }, 500);
       console.log(this.message)
        console.log( this.myItem)
        console.log(this.mySeeklist)
@@ -54,7 +54,7 @@ export default {
   mounted() {
     this.$store.dispatch("getNewcraft");
     this.mySeeklist = this.$store.state.craftarr;
-    console.log(this.mySeeklist)
+    console.log(this.$store.state.craftarr)
   
    
   }
