@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     check1() {
-      this.$store.commit("check", "手机数码");
+      this.$store.commit("check", "热门推荐");
     }
   },
 
@@ -46,6 +46,7 @@ export default {
   height: 100%;
 
   flex-grow: 1;
+  background: #ffffff
 }
 .rightgoods > ul {
   overflow-y: auto;

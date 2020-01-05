@@ -6,7 +6,7 @@
           <img src="../../assets/homepageimg/secondkill.png" alt />
         </div>
         <div class="clock">
-          <p>14点场</p>
+          <p>10点场</p>
           <div>
             <div class="hour">{{hour}}</div>
             <span class="behind">:</span>
@@ -132,7 +132,7 @@ export default {
         }
       ],
       countDownList: "00天00时00分00秒",
-      actEndTime: "2019-12-20 10:00:00"
+      actEndTime: "2020-01-06 10:00:00"
     };
   },
   created() {

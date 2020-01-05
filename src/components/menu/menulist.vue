@@ -74,8 +74,9 @@ export default {
 .menulistwrap{
   position: fixed;
   bottom: 0;
-  margin-top: 10px;
-  background: #ffffff
+  
+  background: #ffffff;
+ 
 }
 .menulist {
   display: flex;

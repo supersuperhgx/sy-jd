@@ -35,7 +35,7 @@
         <span class="craftsize">菠萝裤L码104片</span>
         <span class="change">满一件享换购</span>
         <div class="craftprice">
-          <span>{{item.price*item.count}}元</span>
+          <span>{{ parseInt( item.price*item.count) }}元</span>
           <div>
             <span class="minus" @click="minus(index)">-</span>
             <span class="goodscount">{{item.count}}</span>
@@ -53,7 +53,7 @@
         <div class="sumprice">
           <p>
             <span class="total">总计：</span>
-            <span class="totalprice">{{total}}元</span>
+            <span class="totalprice">{{parseInt(total)}}元</span>
           </p>
           <p class="discount">已优惠￥10.00</p>
         </div>

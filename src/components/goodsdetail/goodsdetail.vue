@@ -27,7 +27,7 @@
       <div class="goods_price">
         <div class="goods_price_left">
           <strong>{{this.$route.query.price}}元</strong>
-          <span v-if="isShow" class="preprice">￥{{premsg}}</span>
+          <!-- <span v-if="isShow" class="preprice">￥{{premsg}}</span> -->
         </div>
 
         <div class="goods_price_right">
@@ -37,7 +37,7 @@
             />
             降价提醒
           </span>
-          <span class="goods_price_right_right">收藏</span>
+          <!-- <span class="goods_price_right_right">收藏</span> -->
         </div>
       </div>
     </div>
@@ -802,23 +802,23 @@ export default {
       }
     }
   },
-  created() {
+  // created() {
 
 
 
-    window.scrollTo(0, 0);
-    this.init_info = this.$store.state.goodDetails;
-    this.imgArr = this.$store.state.goodDetails.imgUrls;
+  //   window.scrollTo(0, 0);
+  //   this.init_info = this.$store.state.goodDetails;
+  //   this.imgArr = this.$store.state.goodDetails.imgUrls;
 
-    if (typeof this.$store.state.goodDetails.price == "number") {
-      this.msg = this.$store.state.goodDetails.price;
-    } else {
-      this.msg = this.$store.state.goodDetails.price[0];
-      this.premsg = this.$store.state.goodDetails.price[1];
-      this.isShow = true;
-    }
-    this.goods_desc = this.$store.state.goodDetails.name;
-  },
+  //   if (typeof this.$store.state.goodDetails.price == "number") {
+  //     this.msg = this.$store.state.goodDetails.price;
+  //   } else {
+  //     this.msg = this.$store.state.goodDetails.price[0];
+  //     this.premsg = this.$store.state.goodDetails.price[1];
+  //     this.isShow = true;
+  //   }
+  //   this.goods_desc = this.$store.state.goodDetails.name;
+  // },
   methods: {
     lzadd() {
       this.$refs.goodsdetail.style.cssText = "position:fixed";

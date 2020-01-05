@@ -15,9 +15,7 @@
       <p v-if="show==1">登录后可同步购物车中商品</p>
       <p v-else>购物车空空如也，去逛逛吧</p>
     </div>
-    <div class="jdkillwrap">
-      <span class="jdkill">京东秒杀</span>
-    </div>
+   
   </div>
 </template>
 <script>

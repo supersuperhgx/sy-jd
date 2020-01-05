@@ -1,7 +1,7 @@
 <template>
   <div class="leftmenu" ref="wrap">
     <ul >
-      <li v-for="(item,index) in list" :key="index" @click="check(item,index)">{{item}}</li>
+      <li v-for="(item,index) in list" :key="index" @click="check(item,index)" :class="{red:index == current}">{{item}}</li>
     </ul>
   </div>
 </template>
@@ -10,7 +10,8 @@ import BScroll from 'better-scroll'
 export default {
   data() {
     return {
-      wrap:{}
+      wrap:{},
+      current:0
     };
   },
   computed: {
@@ -33,8 +34,8 @@ export default {
       this.$store.commit("check", item);
       let element = this.$refs.wrap.querySelectorAll("li")[index];
       // console.log(element)
-      this.scroll.scrollToElement(element,300,0,70);
-      console.log(this.scroll)
+      this.scroll.scrollToElement(element,300);
+      this.current =index
     }
   },
   created() {
@@ -53,11 +54,15 @@ export default {
 .leftmenu {
   width: 22.66%;
   height: 94.1%;
+  /* height: 10%; */
   overflow: hidden;
+  /* border: 1px solid red; */
+  position: relative;
 }
 .leftmenu ul {
   width: 100%;
-  height: 150%;
+  /* height: 1000%; */
+  /* border: 1px solid blue */
 }
 .leftmenu ul li {
   width: 100%;
@@ -65,5 +70,12 @@ export default {
   text-align: center;
   line-height: 46px;
   font-size: 14px;
+}
+
+
+
+.red{
+  color: red;
+  background: #ffffff
 }
 </style>

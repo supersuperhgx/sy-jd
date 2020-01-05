@@ -81,11 +81,12 @@ export default {
 
 .recommendcontent {
   width: 100%;
-  height: 267px;
+  /* height: 267px; */
   /* border: 1px solid red; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 50px
 }
 .recommendcontent > div {
   width: 49%;
@@ -118,7 +119,8 @@ export default {
 .jdsup {
   display: inline-block;
   width: 100%;
-  height: 100%;
+  height: 32px;
+  overflow: hidden;
 }
 .jdsup > img {
   width: 27.05%;
