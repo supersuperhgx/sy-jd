@@ -64,8 +64,6 @@ const store = new Vuex.Store({
     mutations: {
         getData(state, obj) {
             state.newList = obj
-            // state.arr = obj[2]
-            // console.log(state.arr)
             localStorage.setItem("data", JSON.stringify(state.newList))
         },
         check(state,item) {
@@ -95,10 +93,6 @@ const store = new Vuex.Store({
            
         },
         getcraft(state, obj1) {
-            // state.newList = obj
-            // state.arr = obj[2]
-            // console.log(state.arr)
-            // localStorage.setItem("data", JSON.stringify(state.newList))
             state.craftarr = obj1
         },
        

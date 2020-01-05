@@ -5,38 +5,44 @@
     </div>
     <div class="input">
       <i></i>
-      <input type="text" placeholder="键盘鼠标套装" v-model="message" @keyup.enter="ele" />
+      <input type="text" placeholder="键盘鼠标套装" v-model="message" @input="ele" />
     </div>
     <div class="point">
       <!-- <span></span> -->
       <button>搜索</button>
     </div>
-    <ul>
-       <li v-for="(item,index) in mySeeklist " :key="index">
-           {{item}}</li> 
-    </ul>
+  <!-- <ul>
+        <li v-for="(item,index) in mySeeklist"  :key="index">
+          {{item.title}}
+        </li>
+    </ul> -->
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      mySeeklist: null,
+      // mySeeklist: null,
       message: "",
       timer: null,
       myItem: [],
       seekPro: {}
     };
   },
+  computed:{
+      mySeeklist(){
+        return this.$store.state.craftarr
+      }
+  },
   methods: {
     back() {
       window.history.go(-1);
     },
     ele() {
-      // if (this.timer) {
-      //   clearTimeout(this.timer);
-      // }
-      // this.timer = setTimeout(() => {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
         this.myItem = this.mySeeklist.filter(item => {
           if (this.message != "") {
             if (item.title.includes(this.message)) {
@@ -45,17 +51,21 @@ export default {
             }
           }
         });
-      // }, 500);
-      console.log(this.message)
-       console.log( this.myItem)
-       console.log(this.mySeeklist)
+         console.log(this.message)
+      }, 500);
+     
+      //  console.log( this.myItem)
+      //  console.log(this.mySeeklist)
+       this.$emit("test",this.myItem)
+      //  console.log( this.$emit("test",this.myItem))
     }
   },
   mounted() {
     this.$store.dispatch("getNewcraft");
-    this.mySeeklist = this.$store.state.craftarr;
+    // this.mySeeklist = this.$store.state.craftarr;
+    // this.mySeeklist.push(this.$store.state.craftarr) 
     console.log(this.$store.state.craftarr)
-  
+    console.log(this.mySeeklist)
    
   }
 };

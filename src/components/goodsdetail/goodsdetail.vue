@@ -26,7 +26,7 @@
     <div class="goods_price_context">
       <div class="goods_price">
         <div class="goods_price_left">
-          <strong>{{this.$route.query.price}}</strong>
+          <strong>{{this.$route.query.price}}元</strong>
           <span v-if="isShow" class="preprice">￥{{premsg}}</span>
         </div>
 
@@ -487,7 +487,7 @@
         </div>
         <div class="addshoppongcarjump_1_right">
           <span class="lza1price">
-            {{this.$route.query.price}}
+            {{this.$route.query.price}}元
             <i class="el-icon-close" @click="lzcancelzz"></i>
           </span>
           <span class="lza1">
@@ -803,6 +803,9 @@ export default {
     }
   },
   created() {
+
+
+
     window.scrollTo(0, 0);
     this.init_info = this.$store.state.goodDetails;
     this.imgArr = this.$store.state.goodDetails.imgUrls;
@@ -858,7 +861,7 @@ export default {
     
         this.$store.state.buylist.some(item => {
           if (item.id == this.$route.query.id) {
-            if (item.count >= 1)
+            if (item.count >1)
             {item.count--} 
            
             return true;
@@ -886,7 +889,7 @@ export default {
         var flag = false;
         this.$store.state.buylist.some(item => {
           if (item.id == this.$route.query.id) {
-            // item.count++;
+           
             flag = true;
             return true;
           }

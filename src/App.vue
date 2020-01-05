@@ -27,7 +27,7 @@ export default {
       console.log(window.innerHeight);
     });
 
-    
+   this.$store.commit("lastconfirm");
   }
 };
 </script>

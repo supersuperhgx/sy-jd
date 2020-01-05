@@ -15,7 +15,7 @@
           </span>
         </div>
         <div class="recommendbottom">
-          <span class="price">{{item.price}}</span>
+          <span class="price">{{item.price}}元</span>
           <span class="similar">看相似</span>
         </div>
       </div>

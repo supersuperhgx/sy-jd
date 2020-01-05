@@ -1,12 +1,12 @@
 <template>
   <div class="rightgoods">
     <ul>
-      <li v-for="(item,index) in list" :key="index" >
+      <li v-for="(item,index) in list" :key="index">
         <h3>{{item.title}}</h3>
         <div class="goodscontent">
           <div v-for="(icon,index) in item.list" :key="index">
             <img :src="icon.url" alt />
-             <h6>{{icon.type}}</h6>
+            <h6>{{icon.type}}</h6>
           </div>
         </div>
       </li>
@@ -18,23 +18,27 @@ export default {
   computed: {
     list() {
       return this.$store.state.arr;
+    },
+
+    arr() {
+      return this.$store.state.newList.length;
     }
   },
-  methods:{
-     check1() {
+  methods: {
+    check1() {
       this.$store.commit("check", "手机数码");
-      console.log(1)
-    },
+    }
   },
-   created(){
 
-  this.check1()
+  watch: {
+    arr: function(newValue) {
+     
+      if (newValue > 0) {
+        this.check1();
+      }
     }
   }
- 
- 
- 
-
+};
 </script>
 <style scoped>
 .rightgoods {
@@ -42,27 +46,26 @@ export default {
   height: 100%;
 
   flex-grow: 1;
-
 }
-.rightgoods>ul{
-  overflow-y: auto
-} 
+.rightgoods > ul {
+  overflow-y: auto;
+}
 .rightgoods img {
   width: 70px;
   height: 70px;
 }
 
-.goodscontent{
+.goodscontent {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between
+  justify-content: space-between;
 }
-.goodscontent>div{
+.goodscontent > div {
   width: 33.3%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 </style>
