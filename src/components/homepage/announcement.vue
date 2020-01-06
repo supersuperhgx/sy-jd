@@ -44,7 +44,7 @@ export default {
     startMove() {
       // eslint-disable-next-line
       let timer = setTimeout(() => {
-        if (this.number === 2) {
+        if (this.number === 3) {
           this.number = 0;
         } else {
           this.number += 1;
