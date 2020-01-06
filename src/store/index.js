@@ -100,15 +100,15 @@ const store = new Vuex.Store({
 
     },
     actions: {
-        getNewDate(context, val) {
-            Axios.get("http://localhost:8080/menulist.json", val).then((res) => {
+        getNewDate(context) {
+            Axios.get("http://localhost:8080/menulist.json").then((res) => {
                 let data = res.data
                 context.commit("getData", data)
                 console.log(2)
             })
         },
-        getNewcraft(context,val1){
-            Axios.get("http://localhost:8080/goods.json",val1).then(response => {
+        getNewcraft(context){
+            Axios.get("http://localhost:8080/goods.json").then(response => {
                let  craftlist = response.data.list;
                context.commit("getcraft",craftlist)
                          });
